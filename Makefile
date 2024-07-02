@@ -14,12 +14,7 @@ TARGET = Cub3D
 TARGET1 = debug
 
 all: $(TARGET)
-	@echo $(BRIGHT_CYAN)$(BOLD)"┏━━━┓╋╋╋╋┏┓╋╋┏━━━┓┏━━━┓"
-	@echo "┃┏━┓┃╋╋╋╋┃┃╋╋┃┏━┓┃┗┓┏┓┃"
-	@echo "┃┃╋┗┛┏┓┏┓┃┗━┓┗┛┏┛┃╋┃┃┃┃"
-	@echo "┃┃╋┏┓┃┃┃┃┃┏┓┃┏┓┗┓┃╋┃┃┃┃"
-	@echo "┃┗━┛┃┃┗┛┃┃┗┛┃┃┗━┛┃┏┛┗┛┃"
-	@echo "┗━━━┛┗━━┛┗━━┛┗━━━┛┗━━━┛"
+	@make cub
 
 debug: $(TARGET1)
 
@@ -51,33 +46,16 @@ $(OBJDIR)/%.o: $(SRCDIR)%.c | $(OBJDIR)
 clean:
 	@make clean -C srcs/libft
 	@rm -rf $(OBJDIR)
-	@echo $(BRIGHT_MAGENTA)
-	@echo ╭━╮╭╮╱╭━╮╭━━╮╭━┳╮╭━┳╮╭━━╮╭━┳╮╭━━╮
-	@echo ┃╭╯┃┃╱┃┳╯┃╭╮┃┃┃┃┃┃┃┃┃╰┃┃╯┃┃┃┃┃╭━┫
-	@echo ┃╰╮┃╰╮┃┻╮┃┣┫┃┃┃┃┃┃┃┃┃╭┃┃╮┃┃┃┃┃╰╮┃╭╮╭╮╭╮
-	@echo ╰━╯╰━╯╰━╯╰╯╰╯╰┻━╯╰┻━╯╰━━╯╰┻━╯╰━━╯╰╯╰╯╰╯
+	@make printclean
 
 fclean:
 	@make fclean -C srcs/libft
 	@rm -rf $(OBJDIR)
 	@rm -f $(TARGET) $(TARGET1) $(TARGET2)
-	@echo $(RED)╭━━━╮$(BRIGHT_MAGENTA)
-	@echo $(RED)┃╭━━╯$(BRIGHT_MAGENTA)
-	@echo $(RED)┃╰━━╮$(BRIGHT_MAGENTA) ╭━╮╭╮╱╭━╮╭━━╮╭━┳╮╭━┳╮╭━━╮╭━┳╮╭━━╮
-	@echo $(RED)┃╭━━╯$(BRIGHT_MAGENTA) ┃╭╯┃┃╱┃┳╯┃╭╮┃┃┃┃┃┃┃┃┃╰┃┃╯┃┃┃┃┃╭━┫
-	@echo $(RED)┃┃ $(BRIGHT_MAGENTA) ╱╱┃╰╮┃╰╮┃┻╮┃┣┫┃┃┃┃┃┃┃┃┃╭┃┃╮┃┃┃┃┃╰╮┃╭╮╭╮╭╮
-	@echo $(RED)╰╯ $(BRIGHT_MAGENTA)╱╱ ╰━╯╰━╯╰━╯╰╯╰╯╰┻━╯╰┻━╯╰━━╯╰┻━╯╰━━╯╰╯╰╯╰╯
+	@make printfclean
 
 re:
-	@make clean -C srcs/libft
-	@rm -rf $(OBJDIR)
-	@rm -f $(TARGET) $(TARGET1) $(TARGET2)
-	@echo $(RED)╭━━━╮$(BRIGHT_MAGENTA)
-	@echo $(RED)┃╭━━╯$(BRIGHT_MAGENTA)
-	@echo $(RED)┃╰━━╮$(BRIGHT_MAGENTA) ╭━╮╭╮╱╭━╮╭━━╮╭━┳╮╭━┳╮╭━━╮╭━┳╮╭━━╮
-	@echo $(RED)┃╭━━╯$(BRIGHT_MAGENTA) ┃╭╯┃┃╱┃┳╯┃╭╮┃┃┃┃┃┃┃┃┃╰┃┃╯┃┃┃┃┃╭━┫
-	@echo $(RED)┃┃ $(BRIGHT_MAGENTA) ╱╱┃╰╮┃╰╮┃┻╮┃┣┫┃┃┃┃┃┃┃┃┃╭┃┃╮┃┃┃┃┃╰╮┃╭╮╭╮╭╮
-	@echo $(RED)╰╯ $(BRIGHT_MAGENTA)╱╱ ╰━╯╰━╯╰━╯╰╯╰╯╰┻━╯╰┻━╯╰━━╯╰┻━╯╰━━╯╰╯╰╯╰╯
+	@make fclean
 	@make all
 
 .PHONY: all clean fclean re
@@ -118,6 +96,21 @@ cub:
 	@echo "┃┃╋┏┓┃┃┃┃┃┏┓┃┏┓┗┓┃╋┃┃┃┃"
 	@echo "┃┗━┛┃┃┗┛┃┃┗┛┃┃┗━┛┃┏┛┗┛┃"
 	@echo "┗━━━┛┗━━┛┗━━┛┗━━━┛┗━━━┛"
+
+printclean:
+	@echo $(BRIGHT_MAGENTA)
+	@echo ╭━╮╭╮╱╭━╮╭━━╮╭━┳╮╭━┳╮╭━━╮╭━┳╮╭━━╮
+	@echo ┃╭╯┃┃╱┃┳╯┃╭╮┃┃┃┃┃┃┃┃┃╰┃┃╯┃┃┃┃┃╭━┫
+	@echo ┃╰╮┃╰╮┃┻╮┃┣┫┃┃┃┃┃┃┃┃┃╭┃┃╮┃┃┃┃┃╰╮┃╭╮╭╮╭╮
+	@echo ╰━╯╰━╯╰━╯╰╯╰╯╰┻━╯╰┻━╯╰━━╯╰┻━╯╰━━╯╰╯╰╯╰╯
+
+printfclean:
+	@echo $(RED)╭━━━╮$(BRIGHT_MAGENTA)
+	@echo $(RED)┃╭━━╯$(BRIGHT_MAGENTA)
+	@echo $(RED)┃╰━━╮$(BRIGHT_MAGENTA) ╭━╮╭╮╱╭━╮╭━━╮╭━┳╮╭━┳╮╭━━╮╭━┳╮╭━━╮
+	@echo $(RED)┃╭━━╯$(BRIGHT_MAGENTA) ┃╭╯┃┃╱┃┳╯┃╭╮┃┃┃┃┃┃┃┃┃╰┃┃╯┃┃┃┃┃╭━┫
+	@echo $(RED)┃┃ $(BRIGHT_MAGENTA) ╱╱┃╰╮┃╰╮┃┻╮┃┣┫┃┃┃┃┃┃┃┃┃╭┃┃╮┃┃┃┃┃╰╮┃╭╮╭╮╭╮
+	@echo $(RED)╰╯ $(BRIGHT_MAGENTA)╱╱ ╰━╯╰━╯╰━╯╰╯╰╯╰┻━╯╰┻━╯╰━━╯╰┻━╯╰━━╯╰╯╰╯╰╯
 
 coffee:
 	@echo ""
