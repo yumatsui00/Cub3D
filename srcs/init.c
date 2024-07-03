@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 18:49:47 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/03 18:50:41 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/03 19:55:37 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	get_image(t_data *data, int *texture, char *path, t_img *img)
 	{
 		x = -1;
 		//二次元の画像データを１次元に変換して格納
-		while (++y < img->img_width)
+		while (++x < img->img_width)
 			texture[img->img_width * y + x] = img->info[img->img_width * y + x];
 	}
 	mlx_destroy_image(data->mlx, img->img);
@@ -73,7 +73,6 @@ int	init_data(t_data *data)
 	int	w;
 
 	data->mlx = mlx_init();
-	//posX, Y, 等はマップ解析で入れるから、ここじゃなくてもいいかも
 	h = -1;
 	while (++h < HEIGHT)
 	{
@@ -92,5 +91,7 @@ int	init_data(t_data *data)
 			data->texture[h][w] = 0;
 	}
 	install_image(data);
+	data->moveSpeed = MOVESPEED;
+	data->rotSpeed = ROTSPEED;
 	return (OK);
 }
