@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 18:52:36 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/04 12:58:27 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/04 13:26:52 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 #include "all.h"
 
-int	init_data(t_data *data);
-int	mainloop_perflame(t_data *data);
+int		init_data(t_data *data);
+int		mainloop_perflame(t_data *data);
 void	floor_ceiling_casting(t_data *data);
+void	wall_casting(t_data *data);
 #endif

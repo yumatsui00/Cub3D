@@ -6,11 +6,76 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 10:13:45 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/04 13:18:07 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/04 15:46:52 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "all.h"
+
+typedef struct s_mypov_for_wall
+{
+	int	x;
+	int	y;
+	double	camX;
+} t_mypov_for_wall;
+
+typedef struct s_godpov_for_wall
+{
+	double	v_rayX;
+	double	v_rayY;
+	int	mapX;
+	int	mapY;
+	double sideDistX;
+	double sideDistY;
+	double deltaDistX;
+	double deltaDistY;
+	int	stepx;
+	int	stepy;
+
+} t_godpov_for_wall;
+
+typedef struct s_scalar
+{
+} t_scalar;
+
+//! ウォールキャストとフロアキャストは、キャストの方法がそもそも異なる
+//! フロアキャストはy座標ごとに包括的なキャストが可能だが、ウォールキャストはピクセルごとのキャストが必要
+void	wallcast(t_data *data)
+{
+	t_mypov_for_wall	me;
+	t_godpov_for_wall	god;
+
+	//カメラ目線でのx座標で、左端を-1, 右端を1で初期化
+	me.camX = 2 * me.x / (double)WIDTH - 1;
+	//これにより視平面ベクトル左端から右端までの方向ベクトルを計算、カメラの視野全体をカバー
+	god.v_rayX = data->dirX + data->planeX * me.camX;
+	god.v_rayY = data->dirY + data->planeY * me.camX;
+	//map上のどこにいるのか
+	god.mapX = (int)data->posX;
+	god.mapY = (int)data->posY;
+	//次のx、またはy のgridの境界を超えるために必要な方向ベクトルの数
+	god.deltaDistX  = fabs(1 / god.v_rayX);
+	god.deltaDistY = fabs(1 / god.v_rayY);
+	if (god.v_rayX < 0)
+	{
+		god.stepx = -1;
+		//隣のgrid の境界を越えるのに必要な方向ベクトルの数
+		god.sideDistX = (data->posX - god.mapX) * god.deltaDistX
+	}
+	else
+	{
+
+	}
+	if (god.v_rayY < 0)
+	{
+
+	}
+	else
+	{
+		
+	}
+}
+
 
 void	floorcasting(t_data *data)
 {
@@ -23,6 +88,7 @@ void	floorcasting(t_data *data)
 	{
 		// 画面の左端と右端のレイの方向ベクトル計算
 		// カメラ（自分）からレイを照射ており、それの左端、右端の方向ベクトル
+		//planeの設定（scaleの設定）によってraycast の幅が変わり、視野角も変わる
 		cal.rayDirXLeft = data->dirX - data->planeX;
 		cal.rayDirXRight = data->dirX + data->planeX;
 		cal.rayDirYLeft = data->dirY - data->planeY;
