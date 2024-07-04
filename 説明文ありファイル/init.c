@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 18:49:47 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/04 12:55:42 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/03 19:55:37 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,12 @@ static void	install_image(t_data *data)
 {
 	t_img	img;
 
-	get_img(data, data->texture[WALLEAST_NUM], WALLEAST, &img);
-	get_img(data, data->texture[WALLWEST_NUM], WALLWEST, &img);
-	get_img(data, data->texture[WALLNORTH_NUM], WALLNORTH, &img);
-	get_img(data, data->texture[WALLSOUTH_NUM], WALLSOUTH, &img);
-	get_img(data, data->texture[CEILING_NUM], CEILING, &img);
-	get_img(data, data->texture[FLOOR_NUM], FLOOR, &img);
+	get_img(data, data->texture[0], WALLEAST, &img);
+	get_img(data, data->texture[1], WALLWEST, &img);
+	get_img(data, data->texture[2], WALLNORTH, &img);
+	get_img(data, data->texture[3], WALLSOUTH, &img);
+	get_img(data, data->texture[4], CEILING, &img);
+	get_img(data, data->texture[5], FLOOR, &img);
 }
 
 static int	allocate_texture(void)

@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 18:52:42 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/04 13:01:39 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/04 12:11:19 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,6 @@
 # define WALLSOUTH
 # define CEILING
 # define FLOOR
-# define WALLEAST_NUM 0
-# define WALLWEST_NUM 1
-# define WALLNORTH_NUM 2
-# define WALLSOUTH_NUM 3
-# define CEILING_NUM 4
-# define FLOOR_NUM 5
 //壁紙のピクセル数
 # define BLOCKHEIGHT 64 //仮
 # define BLOCKWIDTH 64
@@ -76,49 +70,26 @@ typedef struct s_data
 	double	rotSpeed;//済み
 }	t_data;
 
-//カメラ視点でのx, y座標
-typedef struct s_mypov
+typedef struct s_cal
 {
 	int		x;
 	int		y;
-	float	rayXL;
-	float	rayXR;
-	float	rayYL;
-	float	rayYR;
-	float	relative_y;
+	float	rayDirXLeft;
+	float	rayDirXRight;
+	float	rayDirYLeft;
+	float	rayDirYRight;
+	int		currenty;
 	float	posZ;
 	float	rowDistance;
-} t_mypov;
+	float	floorStepX;
+	float	floorStepY;
 
-//マップを上から見た際のx, y座標
-typedef struct s_godpov
-{
-	float	stepX;
-	float	stepY;
 	float	floorX;
 	float	floorY;
-	int		mapX;
-	int		mapY;
-} t_godpov;
-
-
-// typedef struct s_cal
-// {
-// 	int		x;
-// 	int		y;
-// 	float	rayDirXLeft;
-// 	float	rayDirXRight;
-// 	float	rayDirYLeft;
-// 	float	rayDirYRight;
-// 	int		currenty;
-// 	float	posZ;
-// 	float	rowDistance;
-// 	float	floorStepX;
-// 	float	floorStepY;
-// 	float	floorX;
-// 	float	floorY;
-// 	int		cellX;
-// 	int		cellY;
-// }	t_cal;
+	int		cellX;
+	int		cellY;
+	int		tx;
+	int		ty;
+}	t_cal;
 
 #endif

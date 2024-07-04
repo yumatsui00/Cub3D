@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 18:52:36 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/04 12:58:27 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/04 10:05:01 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,5 @@
 
 int	init_data(t_data *data);
 int	mainloop_perflame(t_data *data);
-void	floor_ceiling_casting(t_data *data);
+
 #endif
