@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 18:52:42 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/04 12:11:19 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/04 18:42:51 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,10 @@ typedef struct s_data
 	int		**map;
 	double	posX;
 	double	posY;
-	double	dirX;
-	double	dirY;
-	double	planeX;
-	double	planeY;
+	double	v_dirX;
+	double	v_dirY;
+	double	v_planeX;
+	double	v_planeY;
 	void	*mlx; //初期化済
 	void	*win; //済
 	//以下初期化なし

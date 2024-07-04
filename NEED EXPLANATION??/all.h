@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 18:52:47 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/03 18:52:49 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/04 18:42:23 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "key.h"
 # include "data.h"
 # include "functions.h"
+# include "raycast.h"
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdio.h>
