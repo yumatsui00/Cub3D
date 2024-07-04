@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 10:13:45 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/04 13:11:56 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/04 13:18:07 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	floorcasting(t_data *data)
 			cal.floorY += cal.floorStepY;
 			//カラー変数に、テクスチャの座標から色を取ってきて代入、それを出力用のバッファに入れる
 			//天井は上下対称なだけなので、同時に行う.
-			//!こっちでプログラムうごかしたかったら以下を治す
+			//!こっちでプログラムうごかしたかったら以下を治す必要あり
 			cal.color = data->texture[FLOOR_NUM][BLOCKWIDTH * txY + txX];
 			data->buf[me.y][me.x] = color;
 			color = data->texture[CEILING_NUM][BLOCKHEIGHT * txY + txY];

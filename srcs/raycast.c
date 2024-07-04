@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   floor_ceiling_cast.c                               :+:      :+:    :+:   */
+/*   raycast.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 12:20:47 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/04 13:09:27 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/04 13:22:24 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "all.h"
 
-static void	x_loop(t_data *data, t_mypov me, t_godpov god)
+
+void	wall_casting(t_data *data)
+{
+	
+}
+
+static void	x_loop(t_data *data, t_mypov_for_floor me, t_godpov_for_floor god)
 {
 	int	txX;
 	int	txY;
@@ -39,8 +45,8 @@ static void	x_loop(t_data *data, t_mypov me, t_godpov god)
 
 void	floor_ceiling_casting(t_data *data)
 {
-	t_mypov		me;
-	t_godpov	god;
+	t_mypov_for_floor	me;
+	t_godpov_for_floor	god;
 
 	me.y = HEIGHT / 2;
 	while (++me.y < HEIGHT)

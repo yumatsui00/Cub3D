@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 18:52:42 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/04 13:01:39 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/04 13:24:05 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,49 +76,6 @@ typedef struct s_data
 	double	rotSpeed;//済み
 }	t_data;
 
-//カメラ視点でのx, y座標
-typedef struct s_mypov
-{
-	int		x;
-	int		y;
-	float	rayXL;
-	float	rayXR;
-	float	rayYL;
-	float	rayYR;
-	float	relative_y;
-	float	posZ;
-	float	rowDistance;
-} t_mypov;
 
-//マップを上から見た際のx, y座標
-typedef struct s_godpov
-{
-	float	stepX;
-	float	stepY;
-	float	floorX;
-	float	floorY;
-	int		mapX;
-	int		mapY;
-} t_godpov;
-
-
-// typedef struct s_cal
-// {
-// 	int		x;
-// 	int		y;
-// 	float	rayDirXLeft;
-// 	float	rayDirXRight;
-// 	float	rayDirYLeft;
-// 	float	rayDirYRight;
-// 	int		currenty;
-// 	float	posZ;
-// 	float	rowDistance;
-// 	float	floorStepX;
-// 	float	floorStepY;
-// 	float	floorX;
-// 	float	floorY;
-// 	int		cellX;
-// 	int		cellY;
-// }	t_cal;
 
 #endif
