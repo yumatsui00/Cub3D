@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 12:20:47 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/04 17:56:15 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/06 06:03:06 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,9 @@ static void	x_loop(t_data *data, t_mypov4floor me, t_godpov4floor god)
 	me.x = 0;
 	while (me.x < WIDTH)
 	{
-		god.mapX = (int)god.floorX;
-		god.mapY = (int)god.floorY;
-		txX = (int)(BLOCKWIDTH * (god.floorX - god.mapX)) \
+		txX = (int)(BLOCKWIDTH * (god.floorX - floor(god.floorX))) \
 						& (BLOCKWIDTH - 1);
-		txY = (int)(BLOCKHEIGHT * (god.floorY - god.mapY)) \
+		txY = (int)(BLOCKHEIGHT * (god.floorY - floor(god.floorY))) \
 						& (BLOCKHEIGHT - 1);
 		color = data->texture[FLOOR_NUM][BLOCKWIDTH * txY + txX];
 		data->buf[me.y][me.x] = color;

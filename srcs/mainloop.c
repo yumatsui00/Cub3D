@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 10:03:42 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/05 20:09:53 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/06 05:18:17 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ static void	updata_key_ad(t_data *data)
 	double	tmpY;
 	int		rotSpeed;
 
-	if (data->key_a)
+	if (data->key_a == GO)
 		rotSpeed = data->rotSpeed;
-	else if (data->key_d)
+	else if (data->key_d == GO)
 		rotSpeed = data->rotSpeed * (-1);
 	else
 		return (0);
@@ -56,7 +56,7 @@ static void	update_key_ws(t_data *data)
 	}
 }
 
-int	mainloop_perflame(t_data *data)
+int	mainloop(t_data *data)
 {
 	int	x;
 	int	y;

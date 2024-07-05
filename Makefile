@@ -1,8 +1,7 @@
 CC = cc
 CCFLAGS = -Wall -Wextra -Werror
-MLXFLAG = -lmlx -framework OpenGL -framework
+MLXFLAG = -lmlx -framework OpenGL -framework AppKit
 DEBUG = -g -fsanitize=address
-
 SRCDIR = srcs
 OBJDIR = objs
 LIBFT = srcs/libft/libft.a

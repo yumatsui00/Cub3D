@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   functions.h                                        :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kkomatsu <kkomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/03 18:52:36 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/04 10:05:01 by yumatsui         ###   ########.fr       */
+/*   Created: 2024/04/16 12:25:41 by kkomatsu          #+#    #+#             */
+/*   Updated: 2024/06/02 19:19:42 by kkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FUNCTIONS_H
-# define FUNCTIONS_H
-
-#include "all.h"
-
-int	init_data(t_data *data);
-int	mainloop_perflame(t_data *data);
-
-#endif
+int	ft_isalpha(int c)
+{
+	if (65 <= c && c <= 90)
+		return (1);
+	if (97 <= c && c <= 122)
+		return (1);
+	return (0);
+}

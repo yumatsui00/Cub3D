@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mainloop_perflame.c                                :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kkomatsu <kkomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/04 10:03:42 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/04 10:18:29 by yumatsui         ###   ########.fr       */
+/*   Created: 2024/04/16 12:29:29 by kkomatsu          #+#    #+#             */
+/*   Updated: 2024/04/16 12:31:22 by kkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "all.h"
+#include "libft.h"
 
-
-void	calculate(t_data *data)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	floor_casting(data);
-}
-
-int	mainloop_perflame(t_data *data)
-{
-	calculate(data);
-	// draw(info);
-	// key_update(info);
-	// return (0);
+	new->next = *lst;
+	*lst = new;
 }

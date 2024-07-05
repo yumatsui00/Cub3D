@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   functions.h                                        :+:      :+:    :+:   */
+/*   all.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/03 18:52:36 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/06 05:18:47 by yumatsui         ###   ########.fr       */
+/*   Created: 2024/07/03 18:52:47 by yumatsui          #+#    #+#             */
+/*   Updated: 2024/07/04 13:24:32 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FUNCTIONS_H
-# define FUNCTIONS_H
+#ifndef ALL_H
+# define ALL_H
 
-#include "all.h"
+# include "key.h"
+# include "data.h"
+# include "functions.h"
+# include "raycast.h"
+# include <fcntl.h>
+# include <unistd.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <sys/time.h>
+# include <math.h>
+# include <mlx.h>
 
-int		init_data(t_data *data);
-int		mainloop(t_data *data);
-void	floor_ceiling_casting(t_data *data);
-void	wall_casting(t_data *data);
-int	key_release(int key, t_data *data);
-int	key_press(int key, t_data *data);
+# define OK 1
+# define ERROR 0
+# define MALLOCERROR -1
 
 #endif

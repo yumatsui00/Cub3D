@@ -27,8 +27,6 @@ typedef struct s_godpov_for_floor
 	float	v_stepY;
 	float	floorX;
 	float	floorY;
-	int		mapX;
-	int		mapY;
 } t_godpov4floor;
 
 typedef struct s_mypov_for_wall

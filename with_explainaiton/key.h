@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 18:03:51 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/02 18:04:37 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/05 19:38:36 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,9 @@
 # define ROLLUP 4
 # define ROLLDOWN 5
 
+# define KEY_PRESS 2
+# define KEY_RELEASE 3
+
+# define STOP 0
+# define GO 0
 #endif
