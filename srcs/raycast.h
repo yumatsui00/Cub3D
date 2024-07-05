@@ -36,6 +36,9 @@ typedef struct s_mypov_for_wall
 	int	x;
 	int	y;
 	double	camX;
+	int		wallheight;
+	int		wallUpperEdge;
+	int		wallLowerEdge;
 } t_mypov4wall;
 
 typedef struct s_godpov_for_wall
@@ -50,8 +53,19 @@ typedef struct s_godpov_for_wall
 	double sideDistY;
 	int	stepX;
 	int	stepY;
-	int		EastWestFlag;
+	int		NorthSouthFlag;
 	double	holizDist;
 } t_godpov4wall;
+
+typedef struct s_tx
+{
+	int		wallX;
+	int		x;
+	int		y;
+	double	step;
+	double	start;
+	int		color;
+	int		num;
+} t_tx;
 
 #endif

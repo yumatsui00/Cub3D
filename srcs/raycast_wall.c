@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 17:55:57 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/04 19:47:36 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/05 17:11:14 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ static void	ray_kees_going(t_data *data, t_godpov4wall *god)
 		{
 			god->sideDistX += god->cellDistX;
 			god->mapX += god->stepX;
-			god->EastWestFlag = 0;
+			god->NorthSouthFlag = 0;
 		}
 		else
 		{
 			god->sideDistY += god->cellDistY;
 			god->mapY += god->stepY;
-			god->EastWestFlag = 1;
+			god->NorthSouthFlag = 1;
 		}
 		if (data->map[god->mapX][god->mapY] > 0)
 			reach_wall = 1;
@@ -61,6 +61,55 @@ static void	measure_dist2wall(t_data *data, t_mypov4wall *me, t_godpov4wall *god
 	ray_keeps_going(data, god);
 }
 
+static void	wall_casting3(t_data *data, t_mypov4wall *me, t_godpov4wall *god, t_tx tx)
+{
+	me->y = me->wallUpperEdge;
+	if (god->NorthSouthFlag = 1 && god->v_rayY > 0)
+		tx.num = WALLNORTH_NUM;
+	else if (god->NorthSouthFlag = 1 && god->v_rayY < 0)
+		tx.num = WALLSOUTH_NUM;
+	else if (god->NorthSouthFlag = 0 && god->v_rayX > 1)
+		tx.num = WALLWEST_NUM;
+	else
+		tx.num = WALLEAST_NUM;
+	while (me->y < me->wallLowerEdge)
+	{
+		tx.y = (int)tx.start & (BLOCKHEIGHT - 1);
+		tx.color = data->texture[tx.num][BLOCKHEIGHT * tx.x + tx.y];
+		data->buf[me->y][me->x] = tx.color;
+		me->y++;
+		tx.start += tx.step;
+	}
+}
+
+static void	wall_casting2(t_data *data, t_mypov4wall *me, t_godpov4wall *god)
+{
+	t_tx	tx;
+
+	if (god->NorthSouthFlag == 0)
+		god->holizDist = (god->mapX - data->posX + (1 - god->stepX) / 2) / god->v_rayX;
+	else
+		god->holizDist = (god->mapY - data->posY + (1 - god->stepY) / 2) / god->v_rayX;
+	me->wallheight = (int)(HEIGHT / god->holizDist);
+	me->wallUpperEdge = (HEIGHT / 2) - (me->wallheight / 2);
+	if (me->wallLowerEdge < 0)
+		me->wallUpperEdge = 0;
+	me->wallLowerEdge = (HEIGHT / 2) + (me->wallheight / 2);
+	if (me->wallLowerEdge > HEIGHT - 1)
+		me->wallheight = HEIGHT - 1;
+	if (god->NorthSouthFlag)
+		tx.wallX = data->posY + god->holizDist * god->v_rayY;
+	else
+		tx.wallX = data->posX + god->holizDist * god->v_rayX;
+	tx.wallX -= floor(tx.wallX);
+	//西側、北側の壁は左右反転させる
+	// if (god->NorthSouthFlag == 0 && god->v_rayX > 0 || god->NorthSouthFlag == 1 && god->v_rayY < 0)
+	// 	txX = BLOCKWIDTH - txX - 1;
+	tx.step = BLOCKHEIGHT / me->wallheight;
+	tx.start = (me->wallUpperEdge - HEIGHT / 2 + BLOCKHEIGHT / 2) * tx.step;
+	wall_casting3(data, me, god, tx);
+}
+
 void	wall_casting(t_data *data)
 {
 	t_mypov4wall	me;
@@ -77,10 +126,6 @@ void	wall_casting(t_data *data)
 		god.mapX = (int)data->posX;
 		god.mapY = (int)data->posY;
 		measure_dist2wall(data, &me, &god);
-		if (god.EastWestFlag == 0)
-			god.holizDist = (god.mapX - data->posX + (1 - god.stepX) / 2) / god.v_rayX;
-		else
-			god.holizDist = (god.mapY - data->posY + (1 - god.stepY) / 2) / god.v_rayX;
-		
+		wall_casting2(data, &me, &god);
 	}
 }
