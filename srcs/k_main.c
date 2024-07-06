@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 13:24:55 by kkomatsu          #+#    #+#             */
-/*   Updated: 2024/07/06 17:13:35 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/06 19:53:44 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,14 +82,14 @@ t_data	k_init(t_analyze *component, t_position pos)
 	{
 		ret.v_dirX = 0;
 		ret.v_dirY = -1;
-		ret.v_planeX = 1;
+		ret.v_planeX = -ret.v_dirY * SCALE;
 		ret.v_planeY = 0;
 	}
 	else if (pos.direction == SOUTH)
 	{
 		ret.v_dirX = 0;
 		ret.v_dirY = 1;
-		ret.v_planeX = -1;
+		ret.v_planeX = -ret.v_dirY * SCALE;
 		ret.v_planeY = 0;
 	}
 	else if (pos.direction == EAST)
@@ -97,14 +97,14 @@ t_data	k_init(t_analyze *component, t_position pos)
 		ret.v_dirX = 1;
 		ret.v_dirY = 0;
 		ret.v_planeX = 0;
-		ret.v_planeY = 1;
+		ret.v_planeY = ret.v_dirX * SCALE;
 	}
 	else if (pos.direction == WEST)
 	{
 		ret.v_dirX = -1;
 		ret.v_dirY = 0;
 		ret.v_planeX = 0;
-		ret.v_planeY = -1;
+		ret.v_planeY = ret.v_dirX * SCALE;
 	}
 	return (ret);
 }

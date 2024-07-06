@@ -6,31 +6,33 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 12:20:47 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/06 18:35:45 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/06 20:05:31 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "all.h"
 
-static void	x_loop(t_data *data, t_mypov4floor me, t_godpov4floor god)
+static void	x_loop(t_data *data, t_mypov4floor *me, t_godpov4floor *god)
 {
 	int	txX;
 	int	txY;
 	int	color;
 
-	me.x = 0;
-	while (++me.x < WIDTH)
+	me->x = 0;
+	while (++me->x < WIDTH)
 	{
-		txX = (int)(BLOCKWIDTH * (god.floorX - floor(god.floorX))) \
+		int cellX = (int)(god->floorX);
+		int cellY = (int)(god->floorY);
+		txX = (int)(BLOCKWIDTH * (god->floorX - cellX)) \
 						& (BLOCKWIDTH - 1);
-		txY = (int)(BLOCKHEIGHT * (god.floorY - floor(god.floorY))) \
+		txY = (int)(BLOCKHEIGHT * (god->floorY - cellY)) \
 						& (BLOCKHEIGHT - 1);
-		color = data->texture[FLOOR_NUM][BLOCKWIDTH * txY + txX];
-		data->buf[me.y][me.x] = color;
-		color = data->texture[CEILING_NUM][BLOCKHEIGHT * txY + txY];
-		data->buf[HEIGHT - me.y - 1][me.x] = color;
-		god.floorX += god.v_stepX;
-		god.floorY += god.v_stepY;
+		color = data->texture[CEILING_NUM][BLOCKWIDTH * txY + txX];
+		data->buf[me->y][me->x] = color;
+		color = data->texture[FLOOR_NUM][BLOCKHEIGHT * txY + txX];
+		data->buf[HEIGHT - me->y - 1][me->x] = color;
+		god->floorX += god->v_stepX;
+		god->floorY += god->v_stepY;
 	}
 }
 
@@ -39,7 +41,7 @@ void	floor_ceiling_casting(t_data *data)
 	t_mypov4floor	me;
 	t_godpov4floor	god;
 
-	me.y = HEIGHT / 2 + 1;
+	me.y = HEIGHT / 2;
 	while (++me.y < HEIGHT)
 	{
 		god.v_rayXL = data->v_dirX - data->v_planeX;
@@ -53,6 +55,6 @@ void	floor_ceiling_casting(t_data *data)
 		god.v_stepY = me.rowDistance * (god.v_rayYR - god.v_rayYL) / WIDTH;
 		god.floorX = data->posX + me.rowDistance * god.v_rayXL;
 		god.floorY = data->posY + me.rowDistance * god.v_rayYL;
-		x_loop(data, me, god);
+		x_loop(data, &me, &god);
 	}
 }

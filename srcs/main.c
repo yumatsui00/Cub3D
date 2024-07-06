@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 17:04:31 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/06 17:45:05 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/06 19:31:58 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main(int argc, char **argv) {
 	if (init_data(&data) == MALLOCERROR)
 		return (MALLOCERROR);
 	//* 以上小松
-
+	
 	data.key_a = 0;
 	data.key_w = 0;
 	data.key_s = 0;

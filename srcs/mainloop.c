@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 10:03:42 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/06 18:43:12 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/06 20:20:41 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	mainloop(t_data *data)
 	{
 		x = -1;
 		while (++x < WIDTH)
-		data->img.info[y * WIDTH + x] = data->buf[y][x];
+			data->img.info[y * WIDTH + x] = data->buf[y][x];
 	}
 	mlx_put_image_to_window(data->mlx, data->win, data->img.img, 0, 0);
 	return (0);

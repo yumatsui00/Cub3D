@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 18:49:47 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/06 17:30:04 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/06 20:00:27 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static void	get_img(t_data *data, int *texture, char *path, t_img *img)
 
 	img->img = mlx_xpm_file_to_image(data->mlx, path, &img->img_width, &img->img_height);
 	if (img->img == NULL)
+		return ;
 	img->info = (int *)mlx_get_data_addr(img->img, &img->bpp, &img->size_l, &img->endian);
 	y = -1;
 	while (++y < img->img_height)
@@ -59,12 +60,12 @@ static int	**allocate_texture(void)
 		if (res == NULL)
 			break ;
 	}
-	if (res[i] == NULL)
-	{
-		while (--i >= 0)
-			free(res[i]);
-		return (free(res), NULL);
-	}
+	// if (res[i] == NULL)
+	// {
+	// 	while (--i >= 0)
+	// 		free(res[i]);
+	// 	return (free(res), NULL);
+	// }
 	return (res);
 }
 
@@ -73,7 +74,6 @@ int	init_data(t_data *data)
 	int	h;
 	int	w;
 
-	
 	h = -1;
 	while (++h < HEIGHT)
 	{
