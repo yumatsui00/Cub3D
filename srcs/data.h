@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   data.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kkomatsu <kkomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 18:52:42 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/05 17:57:52 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/06 16:33:05 by kkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@
 # define BLOCKHEIGHT 64 //仮
 # define BLOCKWIDTH 64
 
-typedef struct	s_img
+typedef struct s_img
 {
 	void	*img;
 	int		*info;
@@ -48,7 +48,7 @@ typedef struct	s_img
 	int		endian;
 	int		img_width;
 	int		img_height;
-}				t_img;
+}			t_img;
 
 //この辺はマップ解析とともに入力してく　
 typedef struct s_data
@@ -60,8 +60,14 @@ typedef struct s_data
 	double	v_dirY;
 	double	v_planeX;
 	double	v_planeY;
-	void	*mlx; //初期化済
-	void	*win; //済
+	char	*n_texture_path;
+	char	*s_texture_path;
+	char	*e_texture_path;
+	char	*w_texture_path;
+	t_rgb	f_rgb;
+	t_rgb	c_rgb;
+	void *mlx; //初期化済
+	void *win; //済
 	//以下初期化なし
 	int		key_a;
 	int		key_w;
@@ -69,12 +75,11 @@ typedef struct s_data
 	int		key_d;
 	int		key_esc;
 	t_img	img;
-	int		buf[HEIGHT][WIDTH]; //初期化済
+	int buf[HEIGHT][WIDTH]; //初期化済
 	double	zBuffer[WIDTH];
-	int		**texture; //初期化済
-	double	moveSpeed;//すみ
-	double	rotSpeed;//済み
-}	t_data;
-
+	int **texture;    //初期化済
+	double moveSpeed; //すみ
+	double rotSpeed;  //済み
+}			t_data;
 
 #endif
