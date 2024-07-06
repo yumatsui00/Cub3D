@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   k_assignment_all.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkomatsu <kkomatsu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 16:55:09 by kkomatsu          #+#    #+#             */
-/*   Updated: 2024/07/06 16:19:16 by kkomatsu         ###   ########.fr       */
+/*   Updated: 2024/07/06 16:57:38 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ t_position	assignment_all(t_analyze *data, char *filepath)
 	while (1)
 	{
 		line = get_next_line(fd);
+		if (!line)
+			break ;
 		if (!assignment_textures_ok(data))
 		{
 			assignment_texture(data, line);
@@ -70,14 +72,13 @@ t_position	assignment_all(t_analyze *data, char *filepath)
 		}
 		else
 			map = ft_strppjoin(map, line);
-		if (!line)
-			break ;
 		free(line);
 	}
 	close(fd);
 	if (check_map(map))
 	{
 		assignment_map(data, map);
+
 		return (analyze_map(data->map));
 	}
 	write(1, "Error\n", 6);

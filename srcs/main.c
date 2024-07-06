@@ -6,20 +6,20 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 17:04:31 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/06 05:19:00 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/06 17:45:05 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "all.h"
 
-int main(void) {
+int main(int argc, char **argv) {
 	t_data	data;
 
-	//! マップ解析必要です
+	data = analyze_cub(argv[1]);
+	data.mlx = mlx_init();
 
 	if (init_data(&data) == MALLOCERROR)
 		return (MALLOCERROR);
-
 	//* 以上小松
 
 	data.key_a = 0;

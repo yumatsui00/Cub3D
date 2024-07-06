@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   k_main.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkomatsu <kkomatsu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 13:24:55 by kkomatsu          #+#    #+#             */
-/*   Updated: 2024/07/06 16:29:41 by kkomatsu         ###   ########.fr       */
+/*   Updated: 2024/07/06 17:13:35 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,12 @@ t_data	k_init(t_analyze *component, t_position pos)
 	ret.s_texture_path = component->s_texture_path;
 	ret.w_texture_path = component->w_texture_path;
 	ret.e_texture_path = component->e_texture_path;
+	//
+	ret.n_texture_path[ft_strlen(ret.n_texture_path) - 1] = '\0';
+	ret.s_texture_path[ft_strlen(ret.s_texture_path) - 1] = '\0';
+	ret.w_texture_path[ft_strlen(ret.w_texture_path) - 1] = '\0';
+	ret.e_texture_path[ft_strlen(ret.e_texture_path) - 1] = '\0';
+	//
 	ret.f_rgb = component->f_rgb;
 	ret.c_rgb = component->c_rgb;
 	if (pos.direction == NORTH)
@@ -113,9 +119,11 @@ t_data	analyze_cub(char *filepath)
 		(write(1, "Error\n", 6), exit(0));
 	component = init_texture();
 	pos = assignment_all(component, filepath);
+
 	if (!pos.direction)
 		exit(0);
 	// debug_intmap(component->map);
+	
 	return (k_init(component, pos));
 }
 

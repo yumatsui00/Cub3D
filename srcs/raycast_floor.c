@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 12:20:47 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/06 06:03:06 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/06 18:35:45 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	x_loop(t_data *data, t_mypov4floor me, t_godpov4floor god)
 	int	color;
 
 	me.x = 0;
-	while (me.x < WIDTH)
+	while (++me.x < WIDTH)
 	{
 		txX = (int)(BLOCKWIDTH * (god.floorX - floor(god.floorX))) \
 						& (BLOCKWIDTH - 1);
@@ -29,7 +29,6 @@ static void	x_loop(t_data *data, t_mypov4floor me, t_godpov4floor god)
 		data->buf[me.y][me.x] = color;
 		color = data->texture[CEILING_NUM][BLOCKHEIGHT * txY + txY];
 		data->buf[HEIGHT - me.y - 1][me.x] = color;
-		me.x += 1;
 		god.floorX += god.v_stepX;
 		god.floorY += god.v_stepY;
 	}
@@ -40,7 +39,7 @@ void	floor_ceiling_casting(t_data *data)
 	t_mypov4floor	me;
 	t_godpov4floor	god;
 
-	me.y = HEIGHT / 2;
+	me.y = HEIGHT / 2 + 1;
 	while (++me.y < HEIGHT)
 	{
 		god.v_rayXL = data->v_dirX - data->v_planeX;

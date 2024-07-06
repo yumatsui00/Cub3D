@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   all.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkomatsu <kkomatsu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 18:52:47 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/06 16:30:14 by kkomatsu         ###   ########.fr       */
+/*   Updated: 2024/07/06 16:37:06 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,33 +30,6 @@
 # define MALLOCERROR -1
 # include "libft/libft.h"
 
-struct		s_rgb
-{
-	int		r;
-	int		g;
-	int		b;
-} typedef t_rgb;
-
-struct		s_position
-{
-	int		x;
-	int		y;
-	int		direction;
-} typedef t_position;
-
-struct		s_analyze
-{
-	char	*n_texture_path;
-	char	*s_texture_path;
-	char	*e_texture_path;
-	char	*w_texture_path;
-	char	*f_texture_path;
-	char	*c_texture_path;
-	int		direction;
-	t_rgb	f_rgb;
-	t_rgb	c_rgb;
-	int		**map;
-} typedef t_analyze;
 
 # define NORTH 4
 # define SOUTH 5

@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 10:03:42 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/06 13:07:57 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/06 18:43:12 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,17 +61,17 @@ int	mainloop(t_data *data)
 	int	x;
 	int	y;
 
+	update_key_ws(data);
+	updata_key_ad(data);
 	floor_ceiling_casting(data);
-	wall_casting(data);
+	// wall_casting(data);
 	y = -1;
 	while (++y < HEIGHT)
 	{
 		x = -1;
-		while (++y < WIDTH)
+		while (++x < WIDTH)
 		data->img.info[y * WIDTH + x] = data->buf[y][x];
 	}
 	mlx_put_image_to_window(data->mlx, data->win, data->img.img, 0, 0);
-	update_key_ws(data);
-	updata_key_ad(data);
 	return (0);
 }

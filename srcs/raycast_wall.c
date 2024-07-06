@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 17:55:57 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/06 13:08:48 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/06 18:24:04 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,13 @@ static void	ray_keeps_going(t_data *data, t_godpov4wall *god)
 			god->mapY += god->stepY;
 			god->NorthSouthFlag = 1;
 		}
-		if (data->map[god->mapX][god->mapY] > 0)
+		// printf("x = %d, y = %d\n", god->mapX, god->mapY);
+		// debug_intmap(data->map);
+		// printf("%d\n", data->map[god->mapY][god->mapX]);
+		// printf("exitするよ\n");
+		// exit(0);
+		
+		if (data->map[god->mapY][god->mapX] > 0)
 			reach_wall = 1;
 	}
 }
@@ -87,9 +93,9 @@ static void	wall_casting2(t_data *data, t_mypov4wall *me, t_godpov4wall *god)
 	t_tx	tx;
 
 	if (god->NorthSouthFlag == 0)
-		god->holizDist = (god->mapX - data->posX + (1 - god->stepX) / 2) / god->v_rayX;
+		god->holizDist = (god->mapX - data->posX + (1 - god->stepX) / 2) / 1;//god->v_rayX;
 	else
-		god->holizDist = (god->mapY - data->posY + (1 - god->stepY) / 2) / god->v_rayY;
+		god->holizDist = (god->mapY - data->posY + (1 - god->stepY) / 2) / 1;//god->v_rayY;
 	me->wallheight = (int)(HEIGHT / god->holizDist);
 	me->wallUpperEdge = (HEIGHT / 2) - (me->wallheight / 2);
 	if (me->wallLowerEdge < 0)
@@ -128,4 +134,6 @@ void	wall_casting(t_data *data)
 		rays_hit_which_side(data, &me, &god);
 		wall_casting2(data, &me, &god);
 	}
+	// printf("kkk\n");
+	// exit(0);
 }

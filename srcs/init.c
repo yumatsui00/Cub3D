@@ -6,19 +6,20 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 18:49:47 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/04 12:55:42 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/06 17:30:04 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "all.h"
 
-static void	get_image(t_data *data, int *texture, char *path, t_img *img)
+static void	get_img(t_data *data, int *texture, char *path, t_img *img)
 {
 	int x;
 	int y;
 
 	img->img = mlx_xpm_file_to_image(data->mlx, path, &img->img_width, &img->img_height);
-	img->info = (int *)mlx_get_data_addr(img->img, &img->bpp, &img->size_l, &img->endian);;
+	if (img->img == NULL)
+	img->info = (int *)mlx_get_data_addr(img->img, &img->bpp, &img->size_l, &img->endian);
 	y = -1;
 	while (++y < img->img_height)
 	{
@@ -35,15 +36,15 @@ static void	install_image(t_data *data)
 {
 	t_img	img;
 
-	get_img(data, data->texture[WALLEAST_NUM], WALLEAST, &img);
-	get_img(data, data->texture[WALLWEST_NUM], WALLWEST, &img);
-	get_img(data, data->texture[WALLNORTH_NUM], WALLNORTH, &img);
-	get_img(data, data->texture[WALLSOUTH_NUM], WALLSOUTH, &img);
+	get_img(data, data->texture[WALLEAST_NUM], data->e_texture_path, &img);
+	get_img(data, data->texture[WALLWEST_NUM], data->w_texture_path, &img);
+	get_img(data, data->texture[WALLNORTH_NUM], data->n_texture_path, &img);
+	get_img(data, data->texture[WALLSOUTH_NUM], data->s_texture_path, &img);
 	get_img(data, data->texture[CEILING_NUM], CEILING, &img);
 	get_img(data, data->texture[FLOOR_NUM], FLOOR, &img);
 }
 
-static int	allocate_texture(void)
+static int	**allocate_texture(void)
 {
 	int i;
 	int	**res;
@@ -72,7 +73,7 @@ int	init_data(t_data *data)
 	int	h;
 	int	w;
 
-	data->mlx = mlx_init();
+	
 	h = -1;
 	while (++h < HEIGHT)
 	{
@@ -84,10 +85,10 @@ int	init_data(t_data *data)
 	if (data->texture == NULL)
 		return (MALLOCERROR);
 	h = -1;
-	while (++h < BLOCKHEIGHT)
+	while (++h < TEXTURE_NUM)
 	{
 		w = -1;
-		while (++w < BLOCKWIDTH)
+		while (++w < BLOCKHEIGHT * BLOCKWIDTH)
 			data->texture[h][w] = 0;
 	}
 	install_image(data);

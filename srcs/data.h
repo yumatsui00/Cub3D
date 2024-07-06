@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   data.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkomatsu <kkomatsu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 18:52:42 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/06 16:33:05 by kkomatsu         ###   ########.fr       */
+/*   Updated: 2024/07/06 18:37:05 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DATA_H
 # define DATA_H
+
+#include "all.h"
 
 //!初期値
 # define WIDTH 640
@@ -22,12 +24,8 @@
 # define SCALE 0.66
 //壁紙の名前 最低6 多分
 # define TEXTURE_NUM 6
-# define WALLEAST "texture/blabla"
-# define WALLWEST
-# define WALLNORTH
-# define WALLSOUTH
-# define CEILING
-# define FLOOR
+# define CEILING "pic.xpm"
+# define FLOOR "pic.xpm"
 # define WALLEAST_NUM 0
 # define WALLWEST_NUM 1
 # define WALLNORTH_NUM 2
@@ -37,6 +35,35 @@
 //壁紙のピクセル数
 # define BLOCKHEIGHT 64 //仮
 # define BLOCKWIDTH 64
+
+struct		s_rgb
+{
+	int		r;
+	int		g;
+	int		b;
+} typedef t_rgb;
+
+struct		s_position
+{
+	int		x;
+	int		y;
+	int		direction;
+} typedef t_position;
+
+struct		s_analyze
+{
+	char	*n_texture_path;
+	char	*s_texture_path;
+	char	*e_texture_path;
+	char	*w_texture_path;
+	char	*f_texture_path;
+	char	*c_texture_path;
+	int		direction;
+	t_rgb	f_rgb;
+	t_rgb	c_rgb;
+	int		**map;
+} typedef t_analyze;
+
 
 typedef struct s_img
 {
