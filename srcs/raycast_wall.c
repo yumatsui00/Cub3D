@@ -6,13 +6,13 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 17:55:57 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/06 07:45:16 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/06 13:08:48 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "all.h"
 
-static void	ray_kees_going(t_data *data, t_godpov4wall *god)
+static void	ray_keeps_going(t_data *data, t_godpov4wall *god)
 {
 	int	reach_wall;
 
@@ -64,11 +64,11 @@ static void	rays_hit_which_side(t_data *data, t_mypov4wall *me, t_godpov4wall *g
 static void buf_update(t_data *data, t_mypov4wall *me, t_godpov4wall *god, t_tx tx)
 {
 	me->y = me->wallUpperEdge;
-	if (god->NorthSouthFlag = 1 && god->v_rayY > 0)
+	if (god->NorthSouthFlag == 1 && god->v_rayY > 0)
 		tx.num = WALLNORTH_NUM;
-	else if (god->NorthSouthFlag = 1 && god->v_rayY < 0)
+	else if (god->NorthSouthFlag == 1 && god->v_rayY < 0)
 		tx.num = WALLSOUTH_NUM;
-	else if (god->NorthSouthFlag = 0 && god->v_rayX > 1)
+	else if (god->NorthSouthFlag == 0 && god->v_rayX > 1)
 		tx.num = WALLWEST_NUM;
 	else
 		tx.num = WALLEAST_NUM;

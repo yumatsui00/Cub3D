@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mainloop_perflame.c                                :+:      :+:    :+:   */
+/*   mainloop.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 10:03:42 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/06 05:18:17 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/06 13:07:57 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	updata_key_ad(t_data *data)
 	else if (data->key_d == GO)
 		rotSpeed = data->rotSpeed * (-1);
 	else
-		return (0);
+		return ;
 	tmpX = data->v_dirX;
 	tmpY = data->v_dirY;
 	data->v_dirX = tmpX * cos(rotSpeed) - tmpY * sin(rotSpeed);
