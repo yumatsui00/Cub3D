@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 10:03:42 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/07 14:28:38 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/07 14:32:52 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	update_key_ws(t_data *data)
 		if (!data->map[(int)(data->posY)]\
 					[(int)(data->posX + data->v_dirX * data->moveSpeed)])
 			data->posX += data->v_dirX * data->moveSpeed;
-		if (!data->map[(int)(data->posY + data->v_dirY * data->moveSpeed)]\
+		if (!data->map[(int)(data->posY + data->v_dirY * data->moveSpeed)]
 					[(int)(data->posX)])
 			data->posY += data->v_dirY * data->moveSpeed;
 	}
