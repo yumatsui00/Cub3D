@@ -6,7 +6,7 @@
 /*   By: kkomatsu <kkomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 16:48:19 by kkomatsu          #+#    #+#             */
-/*   Updated: 2024/07/07 14:08:37 by kkomatsu         ###   ########.fr       */
+/*   Updated: 2024/07/07 20:11:28 by kkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void	assignment_map(t_analyze *data, char **map)
 
 	i = 0;
 	max_width = get_max_width_charpp(map);
+	data->map = NULL;
 	data->map = ft_intppjoin(data->map, make_off_line(max_width, 9));
 	while (map[i])
 	{

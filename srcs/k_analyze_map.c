@@ -6,7 +6,7 @@
 /*   By: kkomatsu <kkomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 19:37:31 by kkomatsu          #+#    #+#             */
-/*   Updated: 2024/07/07 14:47:07 by kkomatsu         ###   ########.fr       */
+/*   Updated: 2024/07/07 20:19:05 by kkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	**init_visited(int **map)
 	size = ft_intpplen(map);
 	visited = (int **)malloc(sizeof(int *) * (size + 1));
 	len = get_max_width_intpp(map);
-	while (i < size + 1)
+	while (i < size)
 	{
 		j = 0;
 		visited[i] = (int *)malloc(sizeof(int) * len);
@@ -73,7 +73,7 @@ int	**init_visited(int **map)
 		}
 		i++;
 	}
-	visited[i] = NULL;
+	visited[size] = NULL;
 	return (visited);
 }
 
