@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 17:55:57 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/07 19:09:59 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/07 22:15:26 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,6 @@ static void	ray_keeps_going(t_data *data, t_godpov4wall *god)
 			god->mapY += god->stepY;
 			god->NorthSouthFlag = 1;
 		}
-		// printf("x = %d, y = %d\n", god->mapX, god->mapY);
-		// debug_intmap(data->map);
-		// printf("%d\n", data->map[god->mapY][god->mapX]);
-		// printf("exitするよ\n");
-		// exit(0);
-		
 		if (data->map[god->mapY][god->mapX] > 0)
 			reach_wall = 1;
 	}
@@ -64,6 +58,8 @@ static void	rays_hit_which_side(t_data *data, t_mypov4wall *me, t_godpov4wall *g
 		god->stepY = 1;
 		god->sideDistY = (god->mapY + 1 - data->posY) * god->cellDistY;
 	}
+	//!この辺りで開閉するドアの処理、当たってドアだったら開ける
+	//ペラペラなら0.５でいけるから楽やねんけどな
 	ray_keeps_going(data, god);
 }
 
@@ -106,8 +102,6 @@ static void	wall_casting2(t_data *data, t_mypov4wall *me, t_godpov4wall *god)
 		tx.start = (me->wallheight / 2 - HEIGHT / 2) * tx.step;
 	else
 		tx.start = 0;
-
-	// printf("up = %d\n", me->wallUpperEdge);
 	if (me->wallUpperEdge < 0)
 		me->wallUpperEdge = 0;
 	me->wallLowerEdge = (HEIGHT / 2) + (me->wallheight / 2);
@@ -123,34 +117,8 @@ static void	wall_casting2(t_data *data, t_mypov4wall *me, t_godpov4wall *god)
 	// if ((god->NorthSouthFlag == 0 && god->v_rayX > 0) || (god->NorthSouthFlag == 1 && god->v_rayY < 0))
 	// 	tx.x = BLOCKWIDTH - tx.x - 1;
 	//
-	//  fprintf(stdout, "Debug: x=%d, wallheight=%d, wallUpperEdge=%d, wallLowerEdge=%d, tx.wallX=%f, tx.x=%d\n", 
-    //         me->x, me->wallheight, me->wallUpperEdge, me->wallLowerEdge, tx.wallX, tx.x);
-
 	buf_update(data, me, god, tx);
 }
-
-// void	wall_casting(t_data *data)
-// {
-// 	t_mypov4wall	me;
-// 	t_godpov4wall	god;
-
-// 	me.x = -1;
-// 	while (++me.x < WIDTH)
-// 	{
-// 		me.camX = 2 * me.x / (double)WIDTH - 1;
-// 		god.v_rayX = data->v_dirX + data->v_planeX * me.camX;
-// 		god.v_rayY = data->v_dirY + data->v_planeY * me.camX;
-// 		god.cellDistX = fabs(1 / god.v_rayX);
-// 		god.cellDistY = fabs(1 / god.v_rayY);
-// 		god.mapX = (int)data->posX;
-// 		god.mapY = (int)data->posY;
-// 		rays_hit_which_side(data, &me, &god);
-// 		wall_casting2(data, &me, &god);
-// 	}
-// 	// printf("kkk\n");
-// 	// exit(0);
-// }
-
 
 void	wall_casting(t_data *data)
 {

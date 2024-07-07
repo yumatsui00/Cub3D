@@ -7,10 +7,9 @@
 # define MINI_W 192
 # define MINI_BLOCK 3
 
-# define GREY 0x808080
 # define BLACK 0
 # define RED 0xFF0000
-# define WHITE 0xFFFFFF
+# define GREY 0xCCCCCC
 # define GREEN 0x00FF00
 
 typedef struct s_mini

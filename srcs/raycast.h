@@ -3,9 +3,6 @@
 
 # include "all.h"
 
-//座標または通常のスカラー値は特に表記無し
-//ベクトルの値は値は頭にv_
-//カメラ視点でのx, y座標
 typedef struct s_mypov_for_floor
 {
 	//floor変数
@@ -16,7 +13,6 @@ typedef struct s_mypov_for_floor
 	float	rowDistance;
 } t_mypov4floor;
 
-//マップを上から見た際のx, y座標
 typedef struct s_godpov_for_floor
 {
 	float	v_rayXL;

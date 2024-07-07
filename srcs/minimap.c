@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 19:12:44 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/07 20:38:36 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/07 22:12:00 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	minimap_casting(t_data *data)
 			mini.mapY = (int)(data->posY + 6.0 * mini.y / MINI_H - 3.0);
 			//!マップによってはここでセグフォしない？
 			if (data->map[mini.mapY][mini.mapX] == 0)
-				data->buf[mini.y][mini.x] = WHITE;
+				data->buf[mini.y][mini.x] = GREY;
 			else
 				data->buf[mini.y][mini.x] = BLACK;
 		}
