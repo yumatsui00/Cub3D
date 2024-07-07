@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   k_main.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kkomatsu <kkomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 13:24:55 by kkomatsu          #+#    #+#             */
-/*   Updated: 2024/07/06 19:53:44 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/07 14:20:36 by kkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "all.h"
-
 #include "libft/libft.h"
+
 // #include <libc.h>
 // __attribute__((destructor))
 // static void destructor() {
@@ -59,52 +59,46 @@ static t_analyze	*init_texture(void)
 	return (ret);
 }
 
+static void	k_init_item1(t_data *ret, t_analyze *component, t_position *pos)
+{
+	ret->map = component->map;
+	ret->posX = pos->x;
+	ret->posY = pos->y;
+	ret->n_texture_path = component->n_texture_path;
+	ret->s_texture_path = component->s_texture_path;
+	ret->w_texture_path = component->w_texture_path;
+	ret->e_texture_path = component->e_texture_path;
+	ret->n_texture_path[ft_strlen(ret->n_texture_path) - 1] = '\0';
+	ret->s_texture_path[ft_strlen(ret->s_texture_path) - 1] = '\0';
+	ret->w_texture_path[ft_strlen(ret->w_texture_path) - 1] = '\0';
+	ret->e_texture_path[ft_strlen(ret->e_texture_path) - 1] = '\0';
+	ret->f_rgb = component->f_rgb;
+	ret->c_rgb = component->c_rgb;
+}
+
 t_data	k_init(t_analyze *component, t_position pos)
 {
 	t_data	ret;
+	int		minus_flag;
 
-	ret.map = component->map;
-	ret.posX = pos.x;
-	ret.posY = pos.y;
-	ret.n_texture_path = component->n_texture_path;
-	ret.s_texture_path = component->s_texture_path;
-	ret.w_texture_path = component->w_texture_path;
-	ret.e_texture_path = component->e_texture_path;
-	//
-	ret.n_texture_path[ft_strlen(ret.n_texture_path) - 1] = '\0';
-	ret.s_texture_path[ft_strlen(ret.s_texture_path) - 1] = '\0';
-	ret.w_texture_path[ft_strlen(ret.w_texture_path) - 1] = '\0';
-	ret.e_texture_path[ft_strlen(ret.e_texture_path) - 1] = '\0';
-	//
-	ret.f_rgb = component->f_rgb;
-	ret.c_rgb = component->c_rgb;
-	if (pos.direction == NORTH)
+	k_init_item1(&ret, component, &pos);
+	if (pos.direction == NORTH || pos.direction == WEST)
+		minus_flag = -1;
+	else
+		minus_flag = 1;
+	if (pos.direction == NORTH || pos.direction == SOUTH)
 	{
 		ret.v_dirX = 0;
-		ret.v_dirY = -1;
-		ret.v_planeX = -ret.v_dirY * SCALE;
+		ret.v_dirY = minus_flag;
+		ret.v_planeX = ret.v_dirY * SCALE * minus_flag;
 		ret.v_planeY = 0;
 	}
-	else if (pos.direction == SOUTH)
+	else
 	{
-		ret.v_dirX = 0;
-		ret.v_dirY = 1;
-		ret.v_planeX = -ret.v_dirY * SCALE;
-		ret.v_planeY = 0;
-	}
-	else if (pos.direction == EAST)
-	{
-		ret.v_dirX = 1;
+		ret.v_dirX = minus_flag;
 		ret.v_dirY = 0;
 		ret.v_planeX = 0;
-		ret.v_planeY = ret.v_dirX * SCALE;
-	}
-	else if (pos.direction == WEST)
-	{
-		ret.v_dirX = -1;
-		ret.v_dirY = 0;
-		ret.v_planeX = 0;
-		ret.v_planeY = ret.v_dirX * SCALE;
+		ret.v_planeY = ret.v_dirX * SCALE * minus_flag;
 	}
 	return (ret);
 }
@@ -119,11 +113,8 @@ t_data	analyze_cub(char *filepath)
 		(write(1, "Error\n", 6), exit(0));
 	component = init_texture();
 	pos = assignment_all(component, filepath);
-
 	if (!pos.direction)
 		exit(0);
-	// debug_intmap(component->map);
-	
 	return (k_init(component, pos));
 }
 
