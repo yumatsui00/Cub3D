@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 17:55:57 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/07 13:41:58 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/07 15:05:43 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,9 +84,13 @@ static void buf_update(t_data *data, t_mypov4wall *me, t_godpov4wall *god, t_tx 
 	me->y = me->wallUpperEdge;
 	while (me->y < me->wallLowerEdge)
 	{
+		if (me->y < HEIGHT){ //!このif分がないと壁に近づくとクラッシュ
 		tx.y = (int)tx.start & (BLOCKHEIGHT - 1);
+		// write(1, "s\n", 2);
 		tx.color = data->texture[tx.num][BLOCKHEIGHT * tx.y + tx.x];
+		// write(1, "e\n", 2);
 		data->buf[me->y][me->x] = tx.color;
+		}
 		me->y++;
 		tx.start += tx.step;
 	}
