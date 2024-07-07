@@ -6,7 +6,7 @@
 /*   By: kkomatsu <kkomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 16:55:09 by kkomatsu          #+#    #+#             */
-/*   Updated: 2024/07/07 14:09:30 by kkomatsu         ###   ########.fr       */
+/*   Updated: 2024/07/07 14:55:44 by kkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ t_position	assignment_all(t_analyze *data, char *filepath)
 		free(line);
 	}
 	close(fd);
-	if (check_map(map))
+	if (map && check_map(map))
 		return (assignment_map(data, map), analyze_map(data->map));
 	write(1, "Error\n", 6);
 	exit(0);

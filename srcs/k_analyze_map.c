@@ -6,7 +6,7 @@
 /*   By: kkomatsu <kkomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 19:37:31 by kkomatsu          #+#    #+#             */
-/*   Updated: 2024/07/07 14:25:14 by kkomatsu         ###   ########.fr       */
+/*   Updated: 2024/07/07 14:47:07 by kkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,31 +81,27 @@ int	solvemap(int **map, int x, int y, int **visited)
 {
 	int	dx[4];
 	int	dy[4];
-	int	newX;
-	int	newY;
+	int	new_x;
+	int	new_y;
 	int	i;
-	int	cols;
-	int	rows;
 
 	init_dx_dy(dx, dy);
-	cols = get_max_width_intpp(map) + 1;
-	rows = ft_intpplen(map) + 1;
-	if (x < 0 || x >= cols || y < 0 || y >= rows || map[y][x] == 1
-		|| map[y][x] == 9 || visited[y][x])
+	if (x < 0 || x >= (get_max_width_intpp(map) + 1) || y < 0
+		|| y >= (ft_intpplen(map) + 1) || map[y][x] == 1 || map[y][x] == 9
+		|| visited[y][x])
 		return (0);
-	if ((x > 0 && map[y][x - 1] == 9) || (x < cols - 1 && map[y][x + 1] == 9)
-		|| (y > 0 && map[y - 1][x] == 9) || (y < rows - 1 && map[y
-			+ 1][x] == 9))
+	if ((x > 0 && map[y][x - 1] == 9) || (x < (get_max_width_intpp(map) + 1) - 1
+			&& map[y][x + 1] == 9) || (y > 0 && map[y - 1][x] == 9)
+		|| (y < (ft_intpplen(map) + 1) - 1 && map[y + 1][x] == 9))
 		return (1);
 	visited[y][x] = 1;
-	i = 0;
-	while (i < 4)
+	i = -1;
+	while (++i < 4)
 	{
-		newX = x + dx[i];
-		newY = y + dy[i];
-		if (solvemap(map, newX, newY, visited))
+		new_x = x + dx[i];
+		new_y = y + dy[i];
+		if (solvemap(map, new_x, new_y, visited))
 			return (1);
-		i++;
 	}
 	return (0);
 }
