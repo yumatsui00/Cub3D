@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 10:03:42 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/07 11:39:29 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/07 13:21:48 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ static void	updata_key_ad(t_data *data)
 	tmpY = data->v_planeY;
 	data->v_planeX = tmpX * cos(rotSpeed) - tmpY * sin(rotSpeed);
 	data->v_planeY = tmpX * sin(rotSpeed) + tmpY * cos(rotSpeed);
+	printf("rot\n");
 }
 
 static void	update_key_ws(t_data *data)

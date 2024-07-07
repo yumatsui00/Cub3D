@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 17:04:31 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/07 12:20:22 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/07 13:20:33 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int main(int argc, char **argv) {
 	printall(data);
 	printf("last = %d\n", data.map[12][27]);
 	data.posX = 27.0;
-	// data.map[12][27] = 0;
+	data.map[12][27] = 0;
 	printf("last = %d\n", data.map[12][27]);
 	printf("pos = %f\n", data.posX);
 	//!

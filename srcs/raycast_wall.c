@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 17:55:57 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/07 12:38:55 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/07 13:41:58 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ static void	rays_hit_which_side(t_data *data, t_mypov4wall *me, t_godpov4wall *g
 
 static void buf_update(t_data *data, t_mypov4wall *me, t_godpov4wall *god, t_tx tx)
 {
-	me->y = me->wallUpperEdge;
 	if (god->NorthSouthFlag == 1 && god->v_rayY > 0)
 		tx.num = WALLNORTH_NUM;
 	else if (god->NorthSouthFlag == 1 && god->v_rayY < 0)
@@ -78,6 +77,11 @@ static void buf_update(t_data *data, t_mypov4wall *me, t_godpov4wall *god, t_tx 
 		tx.num = WALLWEST_NUM;
 	else
 		tx.num = WALLEAST_NUM;
+	//
+	if(me->wallUpperEdge < 0)
+		me->wallUpperEdge = 0.0;
+	//
+	me->y = me->wallUpperEdge;
 	while (me->y < me->wallLowerEdge)
 	{
 		tx.y = (int)tx.start & (BLOCKHEIGHT - 1);
@@ -108,6 +112,7 @@ static void	wall_casting2(t_data *data, t_mypov4wall *me, t_godpov4wall *god)
 	else
 		tx.wallX = data->posX + god->holizDist * god->v_rayX;
 	tx.wallX -= floor(tx.wallX);
+	tx.x = (int)(tx.wallX * (double)BLOCKWIDTH);
 	// 西側、北側の壁は左右反転させる
 	// if (god->NorthSouthFlag == 0 && god->v_rayX > 0 || god->NorthSouthFlag == 1 && god->v_rayY < 0)
 	// 	tx.x = BLOCKWIDTH - tx.x - 1;
@@ -115,6 +120,29 @@ static void	wall_casting2(t_data *data, t_mypov4wall *me, t_godpov4wall *god)
 	tx.start = (me->wallUpperEdge - (double)(HEIGHT / 2) + (double)(BLOCKHEIGHT / 2)) * tx.step;
 	buf_update(data, me, god, tx);
 }
+
+// void	wall_casting(t_data *data)
+// {
+// 	t_mypov4wall	me;
+// 	t_godpov4wall	god;
+
+// 	me.x = -1;
+// 	while (++me.x < WIDTH)
+// 	{
+// 		me.camX = 2 * me.x / (double)WIDTH - 1;
+// 		god.v_rayX = data->v_dirX + data->v_planeX * me.camX;
+// 		god.v_rayY = data->v_dirY + data->v_planeY * me.camX;
+// 		god.cellDistX = fabs(1 / god.v_rayX);
+// 		god.cellDistY = fabs(1 / god.v_rayY);
+// 		god.mapX = (int)data->posX;
+// 		god.mapY = (int)data->posY;
+// 		rays_hit_which_side(data, &me, &god);
+// 		wall_casting2(data, &me, &god);
+// 	}
+// 	// printf("kkk\n");
+// 	// exit(0);
+// }
+
 
 void	wall_casting(t_data *data)
 {
@@ -134,6 +162,4 @@ void	wall_casting(t_data *data)
 		rays_hit_which_side(data, &me, &god);
 		wall_casting2(data, &me, &god);
 	}
-	// printf("kkk\n");
-	// exit(0);
 }
