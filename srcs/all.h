@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 18:52:47 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/06 16:37:06 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/07 19:13:53 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "functions.h"
 # include "key.h"
 # include "raycast.h"
+# include "minimap.h"
 # include <fcntl.h>
 # include <math.h>
 # include <mlx.h>

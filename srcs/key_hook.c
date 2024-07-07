@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 19:35:07 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/07 15:15:22 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/07 20:30:39 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	key_press(int key, t_data *data)
 		data->key_d = GO;
 	else if (key == SP)
 		data->dash = DASH;
+	else if (key == M)
+		data->mini += 1;
 	return (0);
 }
 

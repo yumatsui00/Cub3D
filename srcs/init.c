@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 18:49:47 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/06 20:00:27 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/07 20:36:54 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,6 @@ static int	**allocate_texture(void)
 		if (res == NULL)
 			break ;
 	}
-	// if (res[i] == NULL)
-	// {
-	// 	while (--i >= 0)
-	// 		free(res[i]);
-	// 	return (free(res), NULL);
-	// }
 	return (res);
 }
 
