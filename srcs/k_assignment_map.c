@@ -6,7 +6,7 @@
 /*   By: kkomatsu <kkomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 16:48:19 by kkomatsu          #+#    #+#             */
-/*   Updated: 2024/07/06 10:12:48 by kkomatsu         ###   ########.fr       */
+/*   Updated: 2024/07/07 14:04:59 by kkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,6 @@ void	assignment_map(t_analyze *data, char **map)
 		data->map = ft_intppjoin(data->map, int_line);
 		i++;
 	}
+	data->map = ft_intppjoin(data->map, make_off_line(max_width, 9));
 	data->map = ft_intppjoin(data->map, make_off_line(max_width, -1));
 }
