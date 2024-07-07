@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   k_utils2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kkomatsu <kkomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 17:20:44 by kkomatsu          #+#    #+#             */
-/*   Updated: 2024/07/06 16:56:03 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/07 14:21:29 by kkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ int	**ft_intppjoin(int **map, int *row)
 	}
 	next_map[i] = row;
 	next_map[i + 1] = NULL;
-	// free_double_ptr_int(map);
 	return (next_map);
 }
 
@@ -73,8 +72,8 @@ int	ft_strpplen(char **map)
 
 char	**ft_strppjoin(char **map, char *row)
 {
-	int i;
-	char **next_map;
+	int		i;
+	char	**next_map;
 
 	if (!map)
 	{

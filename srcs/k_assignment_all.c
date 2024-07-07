@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   k_assignment_all.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kkomatsu <kkomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 16:55:09 by kkomatsu          #+#    #+#             */
-/*   Updated: 2024/07/06 16:57:38 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/07 14:09:30 by kkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,11 +76,7 @@ t_position	assignment_all(t_analyze *data, char *filepath)
 	}
 	close(fd);
 	if (check_map(map))
-	{
-		assignment_map(data, map);
-
-		return (analyze_map(data->map));
-	}
+		return (assignment_map(data, map), analyze_map(data->map));
 	write(1, "Error\n", 6);
 	exit(0);
 }
