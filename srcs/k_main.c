@@ -6,7 +6,7 @@
 /*   By: kkomatsu <kkomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 13:24:55 by kkomatsu          #+#    #+#             */
-/*   Updated: 2024/07/07 14:51:17 by kkomatsu         ###   ########.fr       */
+/*   Updated: 2024/07/07 16:16:02 by kkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ static void	k_init_item1(t_data *ret, t_analyze *component, t_position *pos)
 	ret->map = component->map;
 	ret->posX = pos->x;
 	ret->posY = pos->y;
+	ret->map[(int)ret->posY][(int)ret->posX] = 0;
 	ret->n_texture_path = component->n_texture_path;
 	ret->s_texture_path = component->s_texture_path;
 	ret->w_texture_path = component->w_texture_path;
