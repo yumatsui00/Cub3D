@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 18:52:42 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/07 12:19:19 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/07 14:24:07 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # define WIDTH 640
 # define HEIGHT 480
 # define MOVESPEED 0.05
-# define ROTSPEED 0.05
+# define ROTSPEED 0.04
 //視野角定数
 # define SCALE 0.66
 //壁紙の名前 最低6 多分
