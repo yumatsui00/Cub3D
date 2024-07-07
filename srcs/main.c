@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 17:04:31 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/07 11:30:45 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/07 12:20:22 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,12 @@ void	printall(t_data data)
 	printf("dirY  =  %f\n", data.v_dirY);
 	printf("plaX  =  %f\n", data.v_planeX);
 	printf("plaY  =  %f\n", data.v_planeY);
+}
+
+int	window_close(t_data *data)
+{
+	mlx_destroy_window(data->mlx, data->win);
+	exit(0);
 }
 
 int main(int argc, char **argv) {
@@ -44,13 +50,20 @@ int main(int argc, char **argv) {
 	data.img.img = mlx_new_image(data.mlx, WIDTH, HEIGHT);
 	data.img.info = (int *)mlx_get_data_addr(data.img.img, &data.img.bpp, &data.img.size_l, &data.img.endian);
 
+
+	//!小松のposxがinitできてない？
+	//!自分のところをしっかり０にしてある？
 	printall(data);
 	printf("last = %d\n", data.map[12][27]);
-	data.map[12][27] = 0;
+	data.posX = 27.0;
+	// data.map[12][27] = 0;
 	printf("last = %d\n", data.map[12][27]);
+	printf("pos = %f\n", data.posX);
+	//!
 	
 	mlx_loop_hook(data.mlx, &mainloop, &data);
 	mlx_hook(data.win, KEY_PRESS, 0, &key_press, &data);
 	mlx_hook(data.win, KEY_RELEASE, 0, &key_release, &data);
+	mlx_hook(data.win, ON_DESTROY, 0, &window_close, &data);
 	mlx_loop(data.mlx);
 }

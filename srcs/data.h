@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 18:52:42 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/07 11:14:19 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/07 12:19:19 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include "all.h"
 
+
+# define ON_DESTROY 17
 //!初期値
 # define WIDTH 640
 # define HEIGHT 480

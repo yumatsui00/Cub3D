@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 18:52:36 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/06 05:18:47 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/07 12:21:11 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@ void	floor_ceiling_casting(t_data *data);
 void	wall_casting(t_data *data);
 int	key_release(int key, t_data *data);
 int	key_press(int key, t_data *data);
+int	window_close(t_data *data);
 
 #endif

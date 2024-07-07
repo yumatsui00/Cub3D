@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 17:55:57 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/07 11:02:05 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/07 12:38:55 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ static void	wall_casting2(t_data *data, t_mypov4wall *me, t_godpov4wall *god)
 	if (me->wallLowerEdge < 0)
 		me->wallUpperEdge = 0;
 	me->wallLowerEdge = (HEIGHT / 2) + (me->wallheight / 2);
-	if (me->wallLowerEdge > HEIGHT - 1)
+	if (me->wallLowerEdge >= HEIGHT)
 		me->wallheight = HEIGHT - 1;
 	if (!god->NorthSouthFlag)
 		tx.wallX = data->posY + god->holizDist * god->v_rayY;
@@ -111,8 +111,8 @@ static void	wall_casting2(t_data *data, t_mypov4wall *me, t_godpov4wall *god)
 	// 西側、北側の壁は左右反転させる
 	// if (god->NorthSouthFlag == 0 && god->v_rayX > 0 || god->NorthSouthFlag == 1 && god->v_rayY < 0)
 	// 	tx.x = BLOCKWIDTH - tx.x - 1;
-	tx.step = (double)BLOCKHEIGHT / me->wallheight;
-	tx.start = (me->wallUpperEdge - HEIGHT / 2 + BLOCKHEIGHT / 2) * tx.step;
+	tx.step = (double)BLOCKHEIGHT / (double)me->wallheight;
+	tx.start = (me->wallUpperEdge - (double)(HEIGHT / 2) + (double)(BLOCKHEIGHT / 2)) * tx.step;
 	buf_update(data, me, god, tx);
 }
 

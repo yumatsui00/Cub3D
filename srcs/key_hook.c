@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 19:35:07 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/07 10:29:04 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/07 12:20:56 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,7 @@
 int	key_press(int key, t_data *data)
 {
 	if (key == ESC)
-	{
-		// window_close(data);
-		exit(0);
-	}
+		window_close(data);
 	else if (key == W)
 		data->key_w = GO;
 	else if (key == A)
