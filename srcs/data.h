@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 18:52:42 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/07 20:34:51 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/07 21:11:56 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # define MOVESPEED 0.05
 # define ROTSPEED 0.05
 # define DASH 2.0
+# define MOUSEROT 0.005
 //視野角定数
 # define SCALE 0.66
 //壁紙の名前 最低6 多分
@@ -112,6 +113,15 @@ typedef struct s_data
 	double moveSpeed; //すみ
 	double rotSpeed;  //済み
 	int	mini;
+	int	mouse;
 }			t_data;
+
+typedef struct s_ms
+{
+	int		dx;
+	int		dy;
+	double	tmpx;
+	double	tmpy;
+} t_ms;
 
 #endif

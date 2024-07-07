@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 19:35:07 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/07 20:30:39 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/07 21:04:32 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int	key_press(int key, t_data *data)
 		data->dash = DASH;
 	else if (key == M)
 		data->mini += 1;
+	else if (key == TAB)
+		data->mouse += 1;
 	return (0);
 }
 
