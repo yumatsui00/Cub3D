@@ -6,7 +6,7 @@
 /*   By: kkomatsu <kkomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 17:20:44 by kkomatsu          #+#    #+#             */
-/*   Updated: 2024/07/07 14:21:29 by kkomatsu         ###   ########.fr       */
+/*   Updated: 2024/07/07 20:02:29 by kkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int	ft_intplen(int *line)
 {
 	int	len;
 
+	if (line == NULL)
+		return (0);
 	len = 0;
 	while (line[len] != -1)
 		len++;
@@ -26,6 +28,8 @@ int	ft_intpplen(int **map)
 {
 	int	len;
 
+	if (map == NULL)
+		return (0);
 	len = 0;
 	while (map[len])
 		len++;
@@ -38,7 +42,7 @@ int	**ft_intppjoin(int **map, int *row)
 	int	**next_map;
 
 	i = 0;
-	if (!map)
+	if (!map || !*map)
 	{
 		next_map = (int **)malloc(sizeof(int *) * 2);
 		if (!next_map)
@@ -64,6 +68,8 @@ int	ft_strpplen(char **map)
 {
 	int	len;
 
+	if (map == NULL)
+		return (0);
 	len = 0;
 	while (map[len])
 		len++;

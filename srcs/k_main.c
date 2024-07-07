@@ -6,7 +6,7 @@
 /*   By: kkomatsu <kkomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 13:24:55 by kkomatsu          #+#    #+#             */
-/*   Updated: 2024/07/07 16:16:02 by kkomatsu         ###   ########.fr       */
+/*   Updated: 2024/07/07 20:19:56 by kkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,18 +119,24 @@ t_data	analyze_cub(char *filepath)
 	return (k_init(component, pos));
 }
 
+// void	printall(t_data data)
+// {
+// 	printf("-----------map----------\n");
+// 	debug_intmap(data.map);
+// 	printf("----------init----------\n");
+// 	printf("posX  =  %f\n", data.posY);
+// 	printf("posY  =  %f\n", data.posY);
+// 	printf("dirX  =  %f\n", data.v_dirX);
+// 	printf("dirY  =  %f\n", data.v_dirY);
+// 	printf("plaX  =  %f\n", data.v_planeX);
+// 	printf("plaY  =  %f\n", data.v_planeY);
+// }
+
+
 // int	main(int ac, char **av)
 // {
 // 	t_data a;
 
 // 	a = analyze_cub(av[1]);
-// 	// if (a)
-// 	// {
-// 	// 	printf("%s\n", a->n_texture_path);
-// 	// 	printf("%s\n", a->s_texture_path);
-// 	// 	printf("%s\n", a->w_texture_path);
-// 	// 	printf("%s\n", a->e_texture_path);
-// 	// 	printf("%d %d %d\n", a->f_rgb.r, a->f_rgb.g, a->f_rgb.b);
-// 	// 	printf("%d %d %d\n", a->c_rgb.r, a->c_rgb.g, a->c_rgb.b);
-// 	// }
+// 	printall(a);
 // }
