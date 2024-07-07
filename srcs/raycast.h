@@ -57,7 +57,7 @@ typedef struct s_godpov_for_wall
 
 typedef struct s_tx
 {
-	int		wallX;
+	double		wallX;
 	int		x;
 	int		y;
 	double	step;

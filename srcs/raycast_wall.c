@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 17:55:57 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/07 15:05:43 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/07 16:09:35 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ static void buf_update(t_data *data, t_mypov4wall *me, t_godpov4wall *god, t_tx 
 		me->wallUpperEdge = 0.0;
 	//
 	me->y = me->wallUpperEdge;
-	while (me->y < me->wallLowerEdge)
+	while (me->y < me->wallLowerEdge && me->y < HEIGHT)
 	{
 		if (me->y < HEIGHT){ //!このif分がないと壁に近づくとクラッシュ
 		tx.y = (int)tx.start & (BLOCKHEIGHT - 1);
@@ -121,7 +121,13 @@ static void	wall_casting2(t_data *data, t_mypov4wall *me, t_godpov4wall *god)
 	// if (god->NorthSouthFlag == 0 && god->v_rayX > 0 || god->NorthSouthFlag == 1 && god->v_rayY < 0)
 	// 	tx.x = BLOCKWIDTH - tx.x - 1;
 	tx.step = (double)BLOCKHEIGHT / (double)me->wallheight;
-	tx.start = (me->wallUpperEdge - (double)(HEIGHT / 2) + (double)(BLOCKHEIGHT / 2)) * tx.step;
+	if (me->wallUpperEdge < 0)
+		tx.start = (me->wallUpperEdge - HEIGHT / 2 + BLOCKHEIGHT / 2) * tx.step;
+	else
+		tx.start = 0;
+	//  fprintf(stdout, "Debug: x=%d, wallheight=%d, wallUpperEdge=%d, wallLowerEdge=%d, tx.wallX=%f, tx.x=%d\n", 
+    //         me->x, me->wallheight, me->wallUpperEdge, me->wallLowerEdge, tx.wallX, tx.x);
+
 	buf_update(data, me, god, tx);
 }
 

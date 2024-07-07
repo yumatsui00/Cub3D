@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 18:52:42 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/07 14:24:07 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/07 15:17:11 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@
 # define WIDTH 640
 # define HEIGHT 480
 # define MOVESPEED 0.05
-# define ROTSPEED 0.04
+# define ROTSPEED 0.05
+# define DASH 2.0
 //視野角定数
 # define SCALE 0.66
 //壁紙の名前 最低6 多分
@@ -103,6 +104,7 @@ typedef struct s_data
 	int		key_s;
 	int		key_d;
 	int		key_esc;
+	double		dash;
 	t_img	img;
 	int buf[HEIGHT][WIDTH]; //初期化済
 	double	zBuffer[WIDTH];

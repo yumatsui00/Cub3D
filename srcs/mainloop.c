@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 10:03:42 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/07 14:32:52 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/07 15:18:23 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,20 +40,20 @@ static void	update_key_ws(t_data *data)
 	if (data->key_w)
 	{
 		if (!data->map[(int)(data->posY)]\
-					[(int)(data->posX + data->v_dirX * data->moveSpeed)])
-			data->posX += data->v_dirX * data->moveSpeed;
-		if (!data->map[(int)(data->posY + data->v_dirY * data->moveSpeed)]
+					[(int)(data->posX + data->v_dirX * data->moveSpeed * data->dash)])
+			data->posX += data->v_dirX * data->moveSpeed * data->dash;
+		if (!data->map[(int)(data->posY + data->v_dirY * data->moveSpeed * data->dash)]
 					[(int)(data->posX)])
-			data->posY += data->v_dirY * data->moveSpeed;
+			data->posY += data->v_dirY * data->moveSpeed * data->dash;
 	}
 	if (data->key_s)
 	{
 		if (!data->map[(int)(data->posY)]\
-					[(int)(data->posX - data->v_dirX * data->moveSpeed)])
-			data->posX -= data->v_dirX * data->moveSpeed;
-		if (!data->map[(int)(data->posY - data->v_dirY * data->moveSpeed)]\
+					[(int)(data->posX - data->v_dirX * data->moveSpeed * data->dash)])
+			data->posX -= data->v_dirX * data->moveSpeed * data->dash;
+		if (!data->map[(int)(data->posY - data->v_dirY * data->moveSpeed * data->dash)]\
 					[(int)(data->posX)])
-			data->posY -= data->v_dirY * data->moveSpeed;
+			data->posY -= data->v_dirY * data->moveSpeed * data->dash;
 	}
 }
 
