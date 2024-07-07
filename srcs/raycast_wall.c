@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 17:55:57 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/07 16:09:35 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/07 19:07:16 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,18 +77,12 @@ static void buf_update(t_data *data, t_mypov4wall *me, t_godpov4wall *god, t_tx 
 		tx.num = WALLWEST_NUM;
 	else
 		tx.num = WALLEAST_NUM;
-	//
-	if(me->wallUpperEdge < 0)
-		me->wallUpperEdge = 0.0;
-	//
 	me->y = me->wallUpperEdge;
-	while (me->y < me->wallLowerEdge && me->y < HEIGHT)
+	while (me->y < me->wallLowerEdge)
 	{
 		if (me->y < HEIGHT){ //!このif分がないと壁に近づくとクラッシュ
 		tx.y = (int)tx.start & (BLOCKHEIGHT - 1);
-		// write(1, "s\n", 2);
 		tx.color = data->texture[tx.num][BLOCKHEIGHT * tx.y + tx.x];
-		// write(1, "e\n", 2);
 		data->buf[me->y][me->x] = tx.color;
 		}
 		me->y++;
@@ -104,9 +98,17 @@ static void	wall_casting2(t_data *data, t_mypov4wall *me, t_godpov4wall *god)
 		god->holizDist = (god->mapX - data->posX + (1 - god->stepX) / 2) / god->v_rayX;
 	else
 		god->holizDist = (god->mapY - data->posY + (1 - god->stepY) / 2) / god->v_rayY;
+
 	me->wallheight = (int)(HEIGHT / god->holizDist);
 	me->wallUpperEdge = (HEIGHT / 2) - (me->wallheight / 2);
-	if (me->wallLowerEdge < 0)
+	tx.step = (double)BLOCKHEIGHT / (double)me->wallheight;
+	if (me->wallUpperEdge < 0)
+		tx.start = (me->wallheight / 2 - HEIGHT / 2) * tx.step;
+	else
+		tx.start = 0;
+
+	// printf("up = %d\n", me->wallUpperEdge);
+	if (me->wallUpperEdge < 0)
 		me->wallUpperEdge = 0;
 	me->wallLowerEdge = (HEIGHT / 2) + (me->wallheight / 2);
 	if (me->wallLowerEdge >= HEIGHT)
@@ -117,14 +119,10 @@ static void	wall_casting2(t_data *data, t_mypov4wall *me, t_godpov4wall *god)
 		tx.wallX = data->posX + god->holizDist * god->v_rayX;
 	tx.wallX -= floor(tx.wallX);
 	tx.x = (int)(tx.wallX * (double)BLOCKWIDTH);
-	// 西側、北側の壁は左右反転させる
-	// if (god->NorthSouthFlag == 0 && god->v_rayX > 0 || god->NorthSouthFlag == 1 && god->v_rayY < 0)
+	//西側、北側の壁は左右反転させる
+	// if ((god->NorthSouthFlag == 0 && god->v_rayX > 0) || (god->NorthSouthFlag == 1 && god->v_rayY < 0))
 	// 	tx.x = BLOCKWIDTH - tx.x - 1;
-	tx.step = (double)BLOCKHEIGHT / (double)me->wallheight;
-	if (me->wallUpperEdge < 0)
-		tx.start = (me->wallUpperEdge - HEIGHT / 2 + BLOCKHEIGHT / 2) * tx.step;
-	else
-		tx.start = 0;
+	//
 	//  fprintf(stdout, "Debug: x=%d, wallheight=%d, wallUpperEdge=%d, wallLowerEdge=%d, tx.wallX=%f, tx.x=%d\n", 
     //         me->x, me->wallheight, me->wallUpperEdge, me->wallLowerEdge, tx.wallX, tx.x);
 
