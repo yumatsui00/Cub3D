@@ -6,24 +6,24 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 17:04:31 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/08 14:23:59 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/08 16:14:49 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "all.h"
 
-// void	printall(t_data data)
-// {
-// 	printf("-----------map----------\n");
-// 	debug_intmap(data.map);
-// 	printf("----------init----------\n");
-// 	printf("posX  =  %f\n", data.posY);
-// 	printf("posY  =  %f\n", data.posY);
-// 	printf("dirX  =  %f\n", data.v_dirX);
-// 	printf("dirY  =  %f\n", data.v_dirY);
-// 	printf("plaX  =  %f\n", data.v_planeX);
-// 	printf("plaY  =  %f\n", data.v_planeY);
-// }
+void	printall(t_data data)
+{
+	printf("-----------map----------\n");
+	debug_intmap(data.map);
+	printf("----------init----------\n");
+	printf("posX  =  %f\n", data.posY);
+	printf("posY  =  %f\n", data.posY);
+	printf("dirX  =  %f\n", data.v_dirX);
+	printf("dirY  =  %f\n", data.v_dirY);
+	printf("plaX  =  %f\n", data.v_planeX);
+	printf("plaY  =  %f\n", data.v_planeY);
+}
 
 int	window_close(t_data *data)
 {
@@ -71,6 +71,8 @@ int	main(int argc, char **argv) {
 	data.key_s = 0;
 	data.key_d = 0;
 	data.key_esc = 0;
+	data.posX += 0.5;
+	data.posY += 0.5;
 	data.dash = 1;
 	data.mini = 0;
 	data.mouse = 0;
@@ -79,11 +81,11 @@ int	main(int argc, char **argv) {
 	data.img.info = (int *)mlx_get_data_addr(data.img.img, \
 		&data.img.bpp, &data.img.size_l, &data.img.endian);
 	//
-	// printall(data);
-	printf("last = %d\n", data.map[12][27]);
-	data.posX = 27.0;
+	printall(data);
+	// printf("last = %d\n", data.map[12][27]);
+	// data.posX = 27.a0;
 	// data.map[12][27] = 0;
-	printf("last = %d\n", data.map[12][27]);
+	// printf("last = %d\n", data.map[12][27]);
 	printf("pos = %f\n", data.posX);
 	//
 

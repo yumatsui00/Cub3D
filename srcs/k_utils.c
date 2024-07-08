@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 16:53:47 by kkomatsu          #+#    #+#             */
-/*   Updated: 2024/07/06 17:57:27 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/08 16:14:02 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,5 +87,5 @@ void	debug_intmap(int **map)
 		debug_intline(map[i]);
 		i++;
 	}
-	printf("kkk = %d\n", map[11][27]);
+	// printf("kkk = %d\n", map[11][27]);
 }
