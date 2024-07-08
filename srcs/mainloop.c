@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 10:03:42 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/08 14:55:30 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/08 18:23:07 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,13 @@ static void	update_key_ws(t_data *d)
 {
 	if (d->key_w)
 	{
-		if (!d->map[(int)(d->posY + 0.1)][(int)(d->posX + d->v_dirX * \
-		d->moveSpeed * d->dash + 0.1)] && !d->map[(int)(d->posY - 0.1)]
-		[(int)(d->posX + d->v_dirX * d->moveSpeed * d->dash - 0.1)])
+		if (!d->map[(int)(d->posY + 0.05)][(int)(d->posX + d->v_dirX * \
+		d->moveSpeed * d->dash + 0.05)] && !d->map[(int)(d->posY - 0.05)]
+		[(int)(d->posX + d->v_dirX * d->moveSpeed * d->dash - 0.05)])
 			d->posX += d->v_dirX * d->moveSpeed * d->dash;
-		if (!d->map[(int)(d->posY + d->v_dirY * d->moveSpeed * d->dash + 0.1)] \
-		[(int)(d->posX + 0.1)] && !d->map[(int)(d->posY + d->v_dirY * \
-		d->moveSpeed * d->dash - 0.1)][(int)(d->posX - 0.1)])
+		if (!d->map[(int)(d->posY + d->v_dirY * d->moveSpeed * d->dash + 0.05)] \
+		[(int)(d->posX + 0.05)] && !d->map[(int)(d->posY + d->v_dirY * \
+		d->moveSpeed * d->dash - 0.05)][(int)(d->posX - 0.05)])
 			d->posY += d->v_dirY * d->moveSpeed * d->dash;
 	}
 	if (d->key_s)
@@ -64,6 +64,7 @@ int	mainloop(t_data *data)
 {
 	int	x;
 	int	y;
+	int	i = 0;
 
 	update_key_ws(data);
 	update_key_ad(data);
