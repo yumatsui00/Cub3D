@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 18:52:42 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/07 21:11:56 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/08 13:56:17 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,23 +97,22 @@ typedef struct s_data
 	char	*w_texture_path;
 	t_rgb	f_rgb;
 	t_rgb	c_rgb;
-	void *mlx; //初期化済
-	void *win; //済
-	//以下初期化なし
+	void 	*mlx;
+	void 	*win;
 	int		key_a;
 	int		key_w;
 	int		key_s;
 	int		key_d;
 	int		key_esc;
-	double		dash;
+	double	dash;
 	t_img	img;
-	int buf[HEIGHT][WIDTH]; //初期化済
+	int 	buf[HEIGHT][WIDTH];
 	double	zBuffer[WIDTH];
-	int **texture;    //初期化済
-	double moveSpeed; //すみ
-	double rotSpeed;  //済み
-	int	mini;
-	int	mouse;
+	int 	**texture;
+	double	moveSpeed;
+	double	rotSpeed;
+	int		mini;
+	int		mouse;
 }			t_data;
 
 typedef struct s_ms
@@ -122,6 +121,6 @@ typedef struct s_ms
 	int		dy;
 	double	tmpx;
 	double	tmpy;
-} t_ms;
+}	t_ms;
 
 #endif

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   minimap.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/08 13:50:41 by yumatsui          #+#    #+#             */
+/*   Updated: 2024/07/08 13:51:02 by yumatsui         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef MINIMAP_H
 # define MINIMAP_H
 
@@ -16,11 +28,11 @@ typedef struct s_mini
 {
 	int	x;
 	int	y;
-	int	mapX;
-	int	mapY;
+	int	map_x;
+	int	map_y;
 	int	c_x;
 	int	c_y;
-} t_mini;
+}	t_mini;
 
 void	minimap_casting(t_data *data);
 

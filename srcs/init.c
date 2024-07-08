@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 18:49:47 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/07 20:36:54 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/08 14:04:00 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 static void	get_img(t_data *data, int *texture, char *path, t_img *img)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
-	img->img = mlx_xpm_file_to_image(data->mlx, path, &img->img_width, &img->img_height);
+	img->img = mlx_xpm_file_to_image(data->mlx, \
+				path, &img->img_width, &img->img_height);
 	if (img->img == NULL)
 		return ;
-	img->info = (int *)mlx_get_data_addr(img->img, &img->bpp, &img->size_l, &img->endian);
+	img->info = (int *)mlx_get_data_addr(img->img, \
+				&img->bpp, &img->size_l, &img->endian);
 	y = -1;
 	while (++y < img->img_height)
 	{
 		x = -1;
-		//二次元の画像データを１次元に変換して格納
 		while (++x < img->img_width)
 			texture[img->img_width * y + x] = img->info[img->img_width * y + x];
 	}
 	mlx_destroy_image(data->mlx, img->img);
-	//データの解放
 }
 
 static void	install_image(t_data *data)
@@ -47,7 +47,7 @@ static void	install_image(t_data *data)
 
 static int	**allocate_texture(void)
 {
-	int i;
+	int	i;
 	int	**res;
 
 	res = (int **)malloc(sizeof(int *) * TEXTURE_NUM);
