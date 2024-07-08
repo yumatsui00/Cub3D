@@ -1,7 +1,7 @@
-NO ./pic.xpm
-SO ./pic.xpm
-WE ./pic.xpm
-EA ./pic.xpm
+NO ../texture/bookshelf.xpm
+SO ../texture/pic.xpm
+WE ../texture/bricks.xpm
+EA ../texture/tilledsoil.xpm
 F 220,100,0
 C 225,30,0
         1111111111111111111111111

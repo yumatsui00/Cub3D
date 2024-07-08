@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 17:55:57 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/08 13:49:35 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/08 14:33:41 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,9 @@ static void	buf_update(t_data *data, t_mypov4wall *me, t_godpov4wall *god,
 	tx.x = (int)(tx.wall_x * (double)BLOCKWIDTH);
 	if (god->ns_flag == 1 && god->v_ray_y > 0)
 		tx.num = WALLNORTH_NUM;
-	else if (god->ns_flag == 1 && god->v_ray_y < 0)
+	else if (god->ns_flag == 1 && god->v_ray_y <= 0)
 		tx.num = WALLSOUTH_NUM;
-	else if (god->ns_flag == 0 && god->v_ray_x > 1)
+	else if (god->ns_flag == 0 && god->v_ray_x > 0)
 		tx.num = WALLWEST_NUM;
 	else
 		tx.num = WALLEAST_NUM;
@@ -119,7 +119,7 @@ static void	wall_casting2(t_data *data, t_mypov4wall *me, t_godpov4wall *god)
 		tx.wall_x = data->posX + god->holiz_dist * god->v_ray_x;
 	//西側、北側の壁は左右反転させる
 	// if ((god->ns_flag == 0 && god->v_ray_x > 0) || (god->ns_flag == 1
-			// && god->v_ray_y < 0))
+	// 		&& god->v_ray_y < 0))
 	// 	tx.x = BLOCKWIDTH - tx.x - 1;
 	buf_update(data, me, god, tx);
 }

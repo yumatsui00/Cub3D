@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 10:03:42 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/08 13:57:07 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/08 14:55:30 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,26 +34,29 @@ static void	update_key_ad(t_data *data)
 	data->v_planeY = tmp_x * sin(rot_speed) + tmp_y * cos(rot_speed);
 }
 
-static void	update_key_ws(t_data *data)
+static void	update_key_ws(t_data *d)
 {
-	if (data->key_w)
+	if (d->key_w)
 	{
-		if (!data->map[(int)(data->posY)] \
-			[(int)(data->posX + data->v_dirX * data->moveSpeed * data->dash)])
-			data->posX += data->v_dirX * data->moveSpeed * data->dash;
-		if (!data->map[(int)(data->posY + data->v_dirY * \
-			data->moveSpeed * data->dash)][(int)(data->posX)])
-			data->posY += data->v_dirY * data->moveSpeed * data->dash;
+		if (!d->map[(int)(d->posY + 0.1)][(int)(d->posX + d->v_dirX * \
+		d->moveSpeed * d->dash + 0.1)] && !d->map[(int)(d->posY - 0.1)]
+		[(int)(d->posX + d->v_dirX * d->moveSpeed * d->dash - 0.1)])
+			d->posX += d->v_dirX * d->moveSpeed * d->dash;
+		if (!d->map[(int)(d->posY + d->v_dirY * d->moveSpeed * d->dash + 0.1)] \
+		[(int)(d->posX + 0.1)] && !d->map[(int)(d->posY + d->v_dirY * \
+		d->moveSpeed * d->dash - 0.1)][(int)(d->posX - 0.1)])
+			d->posY += d->v_dirY * d->moveSpeed * d->dash;
 	}
-	if (data->key_s)
+	if (d->key_s)
 	{
-		if (!data->map[(int)(data->posY)]\
-					[(int)(data->posX - data->v_dirX * \
-						data->moveSpeed * data->dash)])
-			data->posX -= data->v_dirX * data->moveSpeed * data->dash;
-		if (!data->map[(int)(data->posY - data->v_dirY *\
-						data->moveSpeed * data->dash)][(int)(data->posX)])
-			data->posY -= data->v_dirY * data->moveSpeed * data->dash;
+		if (!d->map[(int)(d->posY + 0.1)][(int)(d->posX - d->v_dirX * \
+		d->moveSpeed * d->dash + 0.1)] && !d->map[(int)(d->posY - 0.1)] \
+		[(int)(d->posX - d->v_dirX * d->moveSpeed * d->dash - 0.1)])
+			d->posX -= d->v_dirX * d->moveSpeed * d->dash;
+		if (!d->map[(int)(d->posY - d->v_dirY * d->moveSpeed * d->dash + 0.1)] \
+		[(int)(d->posX + 0.1)] && !d->map[(int)(d->posY - \
+		d->v_dirY * d->moveSpeed * d->dash - 0.1)][(int)(d->posX - 0.1)])
+			d->posY -= d->v_dirY * d->moveSpeed * d->dash;
 	}
 }
 

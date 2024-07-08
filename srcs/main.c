@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 17:04:31 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/08 14:05:24 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/08 14:23:59 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int	main(int argc, char **argv) {
 	data.img.info = (int *)mlx_get_data_addr(data.img.img, \
 		&data.img.bpp, &data.img.size_l, &data.img.endian);
 	//
-	printall(data);
+	// printall(data);
 	printf("last = %d\n", data.map[12][27]);
 	data.posX = 27.0;
 	// data.map[12][27] = 0;

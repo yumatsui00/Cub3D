@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 12:20:47 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/08 13:37:38 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/08 14:26:41 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ static void	x_loop(t_data *data, t_mypov4floor *me, t_godpov4floor *god)
 						& (BLOCKWIDTH - 1);
 		tx_y = (int)(BLOCKHEIGHT * (god->floor_y - cell_y)) \
 						& (BLOCKHEIGHT - 1);
-		color = data->texture[CEILING_NUM][BLOCKWIDTH * tx_y + tx_x];
+		color = data->texture[FLOOR_NUM][BLOCKWIDTH * tx_y + tx_x];
 		data->buf[me->y][me->x] = color;
-		color = data->texture[FLOOR_NUM][BLOCKHEIGHT * tx_y + tx_x];
+		color = data->texture[CEILING_NUM][BLOCKHEIGHT * tx_y + tx_x];
 		data->buf[HEIGHT - me->y - 1][me->x] = color;
 		god->floor_x += god->v_step_x;
 		god->floor_y += god->v_step_y;
