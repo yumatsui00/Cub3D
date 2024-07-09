@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 18:52:42 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/09 13:52:59 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/09 14:08:28 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,12 +85,12 @@ typedef struct s_img
 typedef struct s_data
 {
 	int		**map;
-	double	posX;
-	double	posY;
-	double	v_dirX;
-	double	v_dirY;
-	double	v_planeX;
-	double	v_planeY;
+	double	pos_x;
+	double	pos_y;
+	double	v_dir_x;
+	double	v_dir_y;
+	double	v_plane_x;
+	double	v_plane_y;
 	char	*n_texture_path;
 	char	*s_texture_path;
 	char	*e_texture_path;
@@ -107,7 +107,6 @@ typedef struct s_data
 	double	dash;
 	t_img	img;
 	int 	buf[HEIGHT][WIDTH];
-	double	zBuffer[WIDTH];
 	int 	**texture;
 	double	moveSpeed;
 	double	rotSpeed;
