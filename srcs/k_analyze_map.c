@@ -6,7 +6,7 @@
 /*   By: kkomatsu <kkomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 19:37:31 by kkomatsu          #+#    #+#             */
-/*   Updated: 2024/07/07 20:19:05 by kkomatsu         ###   ########.fr       */
+/*   Updated: 2024/07/09 13:41:43 by kkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,7 @@ t_position	analyze_map(int **map)
 	position = get_position(map);
 	visited = init_visited(map);
 	flag = solvemap(map, position.x, position.y, visited);
-	free(visited);
+	free_double_ptr_int(visited);
 	if (!flag)
 		return (position);
 	position.direction = 0;

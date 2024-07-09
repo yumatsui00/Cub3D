@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   k_main.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kkomatsu <kkomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 13:24:55 by kkomatsu          #+#    #+#             */
-/*   Updated: 2024/07/08 18:11:28 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/09 13:43:13 by kkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,7 @@ t_data	k_init(t_analyze *component, t_position pos)
 		ret.v_planeX = 0;
 		ret.v_planeY = ret.v_dirX * SCALE * minus_flag;
 	}
+	free(component);
 	return (ret);
 }
 

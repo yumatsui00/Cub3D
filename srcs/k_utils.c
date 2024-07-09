@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   k_utils.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kkomatsu <kkomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 16:53:47 by kkomatsu          #+#    #+#             */
-/*   Updated: 2024/07/08 16:14:02 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/09 13:17:43 by kkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,5 +87,4 @@ void	debug_intmap(int **map)
 		debug_intline(map[i]);
 		i++;
 	}
-	// printf("kkk = %d\n", map[11][27]);
 }

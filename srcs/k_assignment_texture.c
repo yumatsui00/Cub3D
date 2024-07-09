@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   k_assignment_texture_path.c                        :+:      :+:    :+:   */
+/*   k_assignment_texture.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkomatsu <kkomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:31:45 by kkomatsu          #+#    #+#             */
-/*   Updated: 2024/07/04 16:57:13 by kkomatsu         ###   ########.fr       */
+/*   Updated: 2024/07/09 13:36:34 by kkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ static int	ret_rgb(char *line, t_rgb *item)
 	item->r = ft_atoi(splits[0]);
 	item->g = ft_atoi(splits[1]);
 	item->b = ft_atoi(splits[2]);
+	free_double_ptr(splits);
 	return (1);
 }
 
