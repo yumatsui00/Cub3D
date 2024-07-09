@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 17:04:31 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/08 19:53:22 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/09 13:02:20 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	window_close(t_data *data)
 	mlx_destroy_window(data->mlx, data->win);
 	exit(0);
 }
+
 
 int	mouse_move(int x, int y, t_data *data)
 {
@@ -80,6 +81,10 @@ int	main(int argc, char **argv) {
 	data.img.img = mlx_new_image(data.mlx, WIDTH, HEIGHT);
 	data.img.info = (int *)mlx_get_data_addr(data.img.img, \
 		&data.img.bpp, &data.img.size_l, &data.img.endian);
+	if (data.v_dirX == -1)
+		data.v_planeY *= -1;
+	if (data.v_dirY == 1)
+		data.v_planeX *= -1;
 	//
 	printall(data);
 	printf("pos = %f\n", data.posX);
@@ -92,3 +97,9 @@ int	main(int argc, char **argv) {
 	mlx_hook(data.win, ON_DESTROY, 0, &window_close, &data);
 	mlx_loop(data.mlx);
 }
+
+// #include <libc.h>
+// __attribute__((destructor))
+// static void destructor() {
+//     system("leaks -q a.out");
+// }
