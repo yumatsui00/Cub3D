@@ -6,15 +6,14 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 18:52:42 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/09 14:32:00 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/09 14:43:07 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DATA_H
 # define DATA_H
 
-#include "all.h"
-
+# include "all.h"
 
 # define ON_DESTROY 17
 //!初期値
@@ -40,21 +39,21 @@
 # define BLOCKHEIGHT 64 //仮
 # define BLOCKWIDTH 64
 
-struct		s_rgb
+typedef struct s_rgb
 {
 	int		r;
 	int		g;
 	int		b;
-} typedef t_rgb;
+}	t_rgb;
 
-struct		s_position
+typedef struct s_position
 {
 	int		x;
 	int		y;
 	int		direction;
-} typedef t_position;
+}	t_position;
 
-struct		s_analyze
+typedef struct s_analyze
 {
 	char	*n_texture_path;
 	char	*s_texture_path;
@@ -66,8 +65,7 @@ struct		s_analyze
 	t_rgb	f_rgb;
 	t_rgb	c_rgb;
 	int		**map;
-} typedef t_analyze;
-
+}	t_analyze;
 
 typedef struct s_img
 {
@@ -81,7 +79,6 @@ typedef struct s_img
 	int		img_height;
 }			t_img;
 
-//この辺はマップ解析とともに入力してく　
 typedef struct s_data
 {
 	int		**map;
@@ -97,8 +94,8 @@ typedef struct s_data
 	char	*w_texture_path;
 	t_rgb	f_rgb;
 	t_rgb	c_rgb;
-	void 	*mlx;
-	void 	*win;
+	void	*mlx;
+	void	*win;
 	int		key_a;
 	int		key_w;
 	int		key_s;
@@ -106,10 +103,10 @@ typedef struct s_data
 	int		key_esc;
 	double	dash;
 	t_img	img;
-	int 	buf[HEIGHT][WIDTH];
-	int 	**texture;
-	double	moveSpeed;
-	double	rotSpeed;
+	int		buf[HEIGHT][WIDTH];
+	int		**texture;
+	double	move_speed;
+	double	rot_speed;
 	int		mini;
 	int		mouse;
 }			t_data;
@@ -120,6 +117,6 @@ typedef struct s_ms
 	int		dy;
 	double	tmpx;
 	double	tmpy;
-}	t_ms;
+}			t_ms;
 
 #endif

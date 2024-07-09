@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 13:53:39 by kkomatsu          #+#    #+#             */
-/*   Updated: 2024/07/09 14:01:45 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/09 14:38:09 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ static char	*ft_strjoin_c(char *s, char c)
 
 char	*get_next_line(int fd)
 {
-	int n;
-	char c;
-	char *ret;
+	int		n;
+	char	c;
+	char	*ret;
 
 	c = '\0';
 	ret = NULL;

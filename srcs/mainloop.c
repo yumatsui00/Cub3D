@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mainloop.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkomatsu <kkomatsu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 10:03:42 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/09 14:17:30 by kkomatsu         ###   ########.fr       */
+/*   Updated: 2024/07/09 14:43:56 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ static void	update_key_ad(t_data *data)
 	double	rot_speed;
 
 	if (data->key_a == GO)
-		rot_speed = data->rotSpeed * (-1);
+		rot_speed = data->rot_speed * (-1);
 	else if (data->key_d == GO)
-		rot_speed = data->rotSpeed;
+		rot_speed = data->rot_speed;
 	else
 		return ;
 	tmp_x = data->v_dir_x;
@@ -39,24 +39,24 @@ static void	update_key_ws(t_data *d)
 	if (d->key_w)
 	{
 		if (!d->map[(int)(d->pos_y + 0.05)][(int)(d->pos_x + d->v_dir_x * \
-		d->moveSpeed * d->dash + 0.05)] && !d->map[(int)(d->pos_y - 0.05)]
-		[(int)(d->pos_x + d->v_dir_x * d->moveSpeed * d->dash - 0.05)])
-			d->pos_x += d->v_dir_x * d->moveSpeed * d->dash;
-		if (!d->map[(int)(d->pos_y + d->v_dir_y * d->moveSpeed * d->dash + 0.05)] \
-		[(int)(d->pos_x + 0.05)] && !d->map[(int)(d->pos_y + d->v_dir_y * \
-		d->moveSpeed * d->dash - 0.05)][(int)(d->pos_x - 0.05)])
-			d->pos_y += d->v_dir_y * d->moveSpeed * d->dash;
+		d->move_speed * d->dash + 0.05)] && !d->map[(int)(d->pos_y - 0.05)]
+		[(int)(d->pos_x + d->v_dir_x * d->move_speed * d->dash - 0.05)])
+			d->pos_x += d->v_dir_x * d->move_speed * d->dash;
+		if (!d->map[(int)(d->pos_y + d->v_dir_y * d->move_speed * d->dash + \
+		0.05)][(int)(d->pos_x + 0.05)] && !d->map[(int)(d->pos_y + \
+		d->v_dir_y * d->move_speed * d->dash - 0.05)][(int)(d->pos_x - 0.05)])
+			d->pos_y += d->v_dir_y * d->move_speed * d->dash;
 	}
 	if (d->key_s)
 	{
 		if (!d->map[(int)(d->pos_y + 0.05)][(int)(d->pos_x - d->v_dir_x * \
-		d->moveSpeed * d->dash + 0.05)] && !d->map[(int)(d->pos_y - 0.05)] \
-		[(int)(d->pos_x - d->v_dir_x * d->moveSpeed * d->dash - 0.05)])
-			d->pos_x -= d->v_dir_x * d->moveSpeed * d->dash;
-		if (!d->map[(int)(d->pos_y - d->v_dir_y * d->moveSpeed * d->dash + 0.05)] \
-		[(int)(d->pos_x + 0.05)] && !d->map[(int)(d->pos_y - \
-		d->v_dir_y * d->moveSpeed * d->dash - 0.05)][(int)(d->pos_x - 0.05)])
-			d->pos_y -= d->v_dir_y * d->moveSpeed * d->dash;
+		d->move_speed * d->dash + 0.05)] && !d->map[(int)(d->pos_y - 0.05)] \
+		[(int)(d->pos_x - d->v_dir_x * d->move_speed * d->dash - 0.05)])
+			d->pos_x -= d->v_dir_x * d->move_speed * d->dash;
+		if (!d->map[(int)(d->pos_y - d->v_dir_y * d->move_speed * d->dash \
+		+ 0.05)][(int)(d->pos_x + 0.05)] && !d->map[(int)(d->pos_y - \
+		d->v_dir_y * d->move_speed * d->dash - 0.05)][(int)(d->pos_x - 0.05)])
+			d->pos_y -= d->v_dir_y * d->move_speed * d->dash;
 	}
 }
 

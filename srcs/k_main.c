@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   k_main.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkomatsu <kkomatsu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 13:24:55 by kkomatsu          #+#    #+#             */
-/*   Updated: 2024/07/09 14:15:33 by kkomatsu         ###   ########.fr       */
+/*   Updated: 2024/07/09 14:37:33 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,25 +111,3 @@ t_data	analyze_cub(char *filepath)
 		(write(1, "Error\n", 6), exit(0));
 	return (k_init(component, pos));
 }
-
-// void	printall(t_data data)
-// {
-// 	printf("-----------map----------\n");
-// 	debug_intmap(data.map);
-// 	printf("----------init----------\n");
-// 	printf("posX  =  %f\n", data.posY);
-// 	printf("posY  =  %f\n", data.posY);
-// 	printf("dirX  =  %f\n", data.v_dirX);
-// 	printf("dirY  =  %f\n", data.v_dirY);
-// 	printf("plaX  =  %f\n", data.v_planeX);
-// 	printf("plaY  =  %f\n", data.v_planeY);
-// }
-
-
-// int	main(int ac, char **av)
-// {
-// 	t_data a;
-
-// 	a = analyze_cub(av[1]);
-// 	printall(a);
-// }

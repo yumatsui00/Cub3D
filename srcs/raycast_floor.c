@@ -6,13 +6,13 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 12:20:47 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/09 14:20:05 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/09 14:36:36 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/all.h"
 
-static int	change_color(int  color, t_data *data, int c_or_f)
+static int	change_color(int color, t_data *data, int c_or_f)
 {
 	int		ret;
 	t_rgb	palette;

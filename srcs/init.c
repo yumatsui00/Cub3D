@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 18:49:47 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/09 14:00:54 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/09 14:43:24 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int	init_data(t_data *data)
 			data->texture[h][w] = 0;
 	}
 	install_image(data);
-	data->moveSpeed = MOVESPEED;
-	data->rotSpeed = ROTSPEED;
+	data->move_speed = MOVESPEED;
+	data->rot_speed = ROTSPEED;
 	return (OK);
 }

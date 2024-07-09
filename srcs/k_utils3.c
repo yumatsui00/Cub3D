@@ -6,11 +6,12 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 10:51:45 by kkomatsu          #+#    #+#             */
-/*   Updated: 2024/07/09 14:01:57 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/09 14:37:16 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/all.h"
+
 int	get_now_width(int **map, int height)
 {
 	int	width;
