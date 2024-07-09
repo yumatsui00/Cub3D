@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 17:04:31 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/09 14:35:02 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/09 16:25:25 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,5 @@ int	main(int argc, char **argv)
 // #include <libc.h>
 // __attribute__((destructor))
 // static void destructor() {
-//     system("leaks -q a.out");
+//     system("leaks -q cub3D");
 // }
