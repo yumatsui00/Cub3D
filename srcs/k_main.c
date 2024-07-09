@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   k_main.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kkomatsu <kkomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 13:24:55 by kkomatsu          #+#    #+#             */
-/*   Updated: 2024/07/09 14:01:50 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/09 14:15:33 by kkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ static t_analyze	*init_texture(void)
 static void	k_init_item1(t_data *ret, t_analyze *component, t_position *pos)
 {
 	ret->map = component->map;
-	ret->posX = pos->x;
-	ret->posY = pos->y;
-	ret->map[(int)ret->posY][(int)ret->posX] = 0;
+	ret->pos_x = pos->x;
+	ret->pos_y = pos->y;
+	ret->map[(int)ret->pos_y][(int)ret->pos_x] = 0;
 	ret->n_texture_path = component->n_texture_path;
 	ret->s_texture_path = component->s_texture_path;
 	ret->w_texture_path = component->w_texture_path;
@@ -82,17 +82,17 @@ t_data	k_init(t_analyze *component, t_position pos)
 		minus_flag = 1;
 	if (pos.direction == NORTH || pos.direction == SOUTH)
 	{
-		ret.v_dirX = 0;
-		ret.v_dirY = minus_flag;
-		ret.v_planeX = ret.v_dirY * SCALE * minus_flag;
-		ret.v_planeY = 0;
+		ret.v_dir_x = 0;
+		ret.v_dir_y = minus_flag;
+		ret.v_plane_x = ret.v_dir_y * SCALE * minus_flag;
+		ret.v_plane_y = 0;
 	}
 	else
 	{
-		ret.v_dirX = minus_flag;
-		ret.v_dirY = 0;
-		ret.v_planeX = 0;
-		ret.v_planeY = ret.v_dirX * SCALE * minus_flag;
+		ret.v_dir_x = minus_flag;
+		ret.v_dir_y = 0;
+		ret.v_plane_x = 0;
+		ret.v_plane_y = ret.v_dir_x * SCALE * minus_flag;
 	}
 	free(component);
 	return (ret);

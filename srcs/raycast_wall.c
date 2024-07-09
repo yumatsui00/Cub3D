@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast_wall.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kkomatsu <kkomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 17:55:57 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/09 14:02:26 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/09 14:19:26 by kkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,22 +41,22 @@ static void	rays_hit_which_side(t_data *data, t_godpov4wall *god)
 	if (god->v_ray_x < 0)
 	{
 		god->step_x = -1;
-		god->side_dist_x = (data->posX - god->map_x) * god->cell_dist_x;
+		god->side_dist_x = (data->pos_x - god->map_x) * god->cell_dist_x;
 	}
 	else
 	{
 		god->step_x = 1;
-		god->side_dist_x = (god->map_x + 1.0 - data->posX) * god->cell_dist_x;
+		god->side_dist_x = (god->map_x + 1.0 - data->pos_x) * god->cell_dist_x;
 	}
 	if (god->v_ray_y < 0)
 	{
 		god->step_y = -1;
-		god->side_dist_y = (data->posY - god->map_y) * god->cell_dist_y;
+		god->side_dist_y = (data->pos_y - god->map_y) * god->cell_dist_y;
 	}
 	else
 	{
 		god->step_y = 1;
-		god->side_dist_y = (god->map_y + 1 - data->posY) * god->cell_dist_y;
+		god->side_dist_y = (god->map_y + 1 - data->pos_y) * god->cell_dist_y;
 	}
 	ray_keeps_going(data, god);
 }
@@ -93,10 +93,10 @@ static void	wall_casting2(t_data *data, t_mypov4wall *me, t_godpov4wall *god)
 	t_tx	tx;
 
 	if (god->ns_flag == 0)
-		god->holiz_dist = (god->map_x - data->posX + (1 - god->step_x) / 2)
+		god->holiz_dist = (god->map_x - data->pos_x + (1 - god->step_x) / 2)
 			/ god->v_ray_x;
 	else
-		god->holiz_dist = (god->map_y - data->posY + (1 - god->step_y) / 2)
+		god->holiz_dist = (god->map_y - data->pos_y + (1 - god->step_y) / 2)
 			/ god->v_ray_y;
 	me->wallheight = (int)(HEIGHT / god->holiz_dist);
 	tx.step = (double)BLOCKHEIGHT / (double)me->wallheight;
@@ -111,9 +111,9 @@ static void	wall_casting2(t_data *data, t_mypov4wall *me, t_godpov4wall *god)
 	if (me->wall_l_edge >= HEIGHT)
 		me->wallheight = HEIGHT - 1;
 	if (!god->ns_flag)
-		tx.wall_x = data->posY + god->holiz_dist * god->v_ray_y;
+		tx.wall_x = data->pos_y + god->holiz_dist * god->v_ray_y;
 	else
-		tx.wall_x = data->posX + god->holiz_dist * god->v_ray_x;
+		tx.wall_x = data->pos_x + god->holiz_dist * god->v_ray_x;
 	buf_update(data, me, god, tx);
 }
 
@@ -126,12 +126,12 @@ void	wall_casting(t_data *data)
 	while (++me.x < WIDTH)
 	{
 		me.cam_x = 2 * me.x / (double)WIDTH - 1;
-		god.v_ray_x = data->v_dirX + data->v_planeX * me.cam_x;
-		god.v_ray_y = data->v_dirY + data->v_planeY * me.cam_x;
+		god.v_ray_x = data->v_dir_x + data->v_plane_x * me.cam_x;
+		god.v_ray_y = data->v_dir_y + data->v_plane_y * me.cam_x;
 		god.cell_dist_x = fabs(1 / god.v_ray_x);
 		god.cell_dist_y = fabs(1 / god.v_ray_y);
-		god.map_x = (int)data->posX;
-		god.map_y = (int)data->posY;
+		god.map_x = (int)data->pos_x;
+		god.map_y = (int)data->pos_y;
 		rays_hit_which_side(data, &god);
 		wall_casting2(data, &me, &god);
 	}
