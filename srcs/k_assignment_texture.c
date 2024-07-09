@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   k_assignment_texture.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkomatsu <kkomatsu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:31:45 by kkomatsu          #+#    #+#             */
-/*   Updated: 2024/07/09 13:36:34 by kkomatsu         ###   ########.fr       */
+/*   Updated: 2024/07/09 14:01:37 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "all.h"
-#include "libft/libft.h"
+#include "../includes/all.h"
 
 static int	check_rgb(char *s)
 {

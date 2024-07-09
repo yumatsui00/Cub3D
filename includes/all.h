@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 18:52:47 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/07 19:13:53 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/09 14:02:56 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 # define OK 1
 # define ERROR 0
 # define MALLOCERROR -1
-# include "libft/libft.h"
+# include "../srcs/libft/libft.h"
 
 
 # define NORTH 4

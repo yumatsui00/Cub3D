@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   k_assignment_all.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkomatsu <kkomatsu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 16:55:09 by kkomatsu          #+#    #+#             */
-/*   Updated: 2024/07/07 20:11:14 by kkomatsu         ###   ########.fr       */
+/*   Updated: 2024/07/09 14:01:03 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "all.h"
+#include "../includes/all.h"
 
 // is assignment texture_path ok?
 static int	assignment_textures_ok(t_analyze *data)

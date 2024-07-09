@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 18:52:42 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/08 18:29:37 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/09 13:52:59 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@
 # define SCALE 0.66
 //壁紙の名前 最低6 多分
 # define TEXTURE_NUM 6
-# define CEILING "../texture/ice.xpm"
-# define FLOOR "../texture/walkstone.xpm"
+# define CEILING "texture/ice.xpm"
+# define FLOOR "texture/walkstone.xpm"
 # define WALLEAST_NUM 0
 # define WALLWEST_NUM 1
 # define WALLNORTH_NUM 2

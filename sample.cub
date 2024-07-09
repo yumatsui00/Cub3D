@@ -1,7 +1,7 @@
-NO ../texture/bookshelf.xpm
-SO ../texture/komatsu.xpm
-WE ../texture/bricks.xpm
-EA ../texture/tilledsoil.xpm
+NO texture/bookshelf.xpm
+SO texture/komatsu.xpm
+WE texture/bricks.xpm
+EA texture/tilledsoil.xpm
 F 220,100,0
 C 225,30,0
         1111111111111111111111111

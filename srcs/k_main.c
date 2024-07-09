@@ -3,21 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   k_main.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkomatsu <kkomatsu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 13:24:55 by kkomatsu          #+#    #+#             */
-/*   Updated: 2024/07/09 13:43:13 by kkomatsu         ###   ########.fr       */
+/*   Updated: 2024/07/09 14:01:50 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "all.h"
-#include "libft/libft.h"
-
-// #include <libc.h>
-// __attribute__((destructor))
-// static void destructor() {
-//     system("leaks -q a.out");
-// }
+#include "../includes/all.h"
 
 static int	check_filename(char *filename)
 {
@@ -108,7 +101,6 @@ t_data	k_init(t_analyze *component, t_position pos)
 t_data	analyze_cub(char *filepath)
 {
 	t_analyze	*component;
-	t_data		data;
 	t_position	pos;
 
 	if (!check_filename(filepath))

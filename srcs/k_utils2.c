@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   k_utils2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkomatsu <kkomatsu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 17:20:44 by kkomatsu          #+#    #+#             */
-/*   Updated: 2024/07/09 13:18:09 by kkomatsu         ###   ########.fr       */
+/*   Updated: 2024/07/09 14:01:55 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "all.h"
+#include "../includes/all.h"
 
 int	ft_intplen(int *line)
 {

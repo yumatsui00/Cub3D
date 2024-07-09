@@ -5,31 +5,34 @@ DEBUG = -g -fsanitize=address
 SRCDIR = srcs
 OBJDIR = objs
 LIBFT = srcs/libft/libft.a
+INCLUDE = -I includes/all.h
 
-SRCS = srcs/k_cut_in_space.c
+SRCS = srcs/k_analyze_map.c srcs/init.c srcs/k_assignment_all.c srcs/k_assignment_map.c srcs/k_assignment_texture.c srcs/k_gnl.c \
+		srcs/k_main.c srcs/k_utils.c srcs/k_utils2.c srcs/k_utils3.c srcs/key_hook.c srcs/main.c srcs/mainloop.c srcs/minimap.c \
+		srcs/raycast_floor.c srcs/raycast_wall.c
 OBJS = $(SRCS:$(SRCDIR)%.c=$(OBJDIR)/%.o)
 
 TARGET = Cub3D
 TARGET1 = debug
 
 all: $(TARGET)
+	@echo
 	@make cub
+	@echo
 
 debug: $(TARGET1)
 
 $(TARGET): $(OBJS) $(LIBFT)
-	# $(MAKE) -C srcs/libft
-	$(CC) $(CCFLAGS) $(MLXFLAG) -o  $@ $^ $(LIBFT)
+	$(CC) $(CCFLAGS) $(MLXFLAG) $(INCLUDE) -o $@ $^ $(LIBFT)
 	@echo
 	@echo $(YELLOW)$(BOLD)MAKE DONE
 
 $(LIBFT):
 	$(MAKE) -C srcs/libft
 
-$(TARGET1): $(OBJS)
+$(TARGET1): $(OBJS) $(LIBFT)
 	@echo $(BRIGHT_YELLOW)
-	# $(MAKE) -C srcs/libft
-	$(CC) $(CCFLAGS) $(MLXFLAG) -o  $@ $^ $(LIBFT)
+	$(CC) $(CCFLAGS) $(MLXFLAG) $(INCLUDE) $(DEBUG) -o  $@ $^ $(LIBFT)
 	@echo
 	@echo FSANITIZE=ADDRESS DONE
 

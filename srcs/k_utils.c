@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   k_utils.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkomatsu <kkomatsu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 16:53:47 by kkomatsu          #+#    #+#             */
-/*   Updated: 2024/07/09 13:17:43 by kkomatsu         ###   ########.fr       */
+/*   Updated: 2024/07/09 14:01:53 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "all.h"
+#include "../includes/all.h"
 
 void	free_double_ptr(char **s)
 {

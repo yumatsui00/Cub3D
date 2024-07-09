@@ -6,11 +6,11 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 18:49:47 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/08 14:04:00 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/09 14:00:54 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "all.h"
+#include "../includes/all.h"
 
 static void	get_img(t_data *data, int *texture, char *path, t_img *img)
 {

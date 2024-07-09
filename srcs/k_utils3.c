@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   k_utils3.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkomatsu <kkomatsu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 10:51:45 by kkomatsu          #+#    #+#             */
-/*   Updated: 2024/07/06 10:13:36 by kkomatsu         ###   ########.fr       */
+/*   Updated: 2024/07/09 14:01:57 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "all.h"
-
+#include "../includes/all.h"
 int	get_now_width(int **map, int height)
 {
 	int	width;

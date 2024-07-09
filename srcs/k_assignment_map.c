@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   k_assignment_map.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkomatsu <kkomatsu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 16:48:19 by kkomatsu          #+#    #+#             */
-/*   Updated: 2024/07/09 13:41:02 by kkomatsu         ###   ########.fr       */
+/*   Updated: 2024/07/09 14:01:05 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "all.h"
+#include "../includes/all.h"
 
 static void	put_ret(char *line, int *ret, int i)
 {

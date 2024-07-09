@@ -6,11 +6,11 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 10:03:42 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/08 19:55:48 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/09 14:02:17 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "all.h"
+#include "../includes/all.h"
 
 static void	update_key_ad(t_data *data)
 {
@@ -64,7 +64,6 @@ int	mainloop(t_data *data)
 {
 	int	x;
 	int	y;
-	int	i = 0;
 
 	update_key_ws(data);
 	update_key_ad(data);

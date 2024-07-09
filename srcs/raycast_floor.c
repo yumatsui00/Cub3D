@@ -6,11 +6,11 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 12:20:47 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/08 19:51:39 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/09 14:02:22 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "all.h"
+#include "../includes/all.h"
 
 static void	x_loop(t_data *data, t_mypov4floor *me, t_godpov4floor *god)
 {

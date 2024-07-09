@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   k_gnl.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkomatsu <kkomatsu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 13:53:39 by kkomatsu          #+#    #+#             */
-/*   Updated: 2024/07/04 15:20:55 by kkomatsu         ###   ########.fr       */
+/*   Updated: 2024/07/09 14:01:45 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "all.h"
-#include "libft/libft.h"
+#include "../includes/all.h"
 
 static char	*ft_strjoin_c(char *s, char c)
 {

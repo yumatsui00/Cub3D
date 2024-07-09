@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   k_analyze_map.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkomatsu <kkomatsu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 19:37:31 by kkomatsu          #+#    #+#             */
-/*   Updated: 2024/07/09 13:41:43 by kkomatsu         ###   ########.fr       */
+/*   Updated: 2024/07/09 14:01:00 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "all.h"
+#include "../includes/all.h"
 
 t_position	get_position(int **map)
 {

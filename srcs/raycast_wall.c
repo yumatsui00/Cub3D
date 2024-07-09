@@ -6,11 +6,11 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 17:55:57 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/08 19:52:59 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/09 14:02:26 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "all.h"
+#include "../includes/all.h"
 
 static void	ray_keeps_going(t_data *data, t_godpov4wall *god)
 {
@@ -36,8 +36,7 @@ static void	ray_keeps_going(t_data *data, t_godpov4wall *god)
 	}
 }
 
-static void	rays_hit_which_side(t_data *data, t_mypov4wall *me,
-		t_godpov4wall *god)
+static void	rays_hit_which_side(t_data *data, t_godpov4wall *god)
 {
 	if (god->v_ray_x < 0)
 	{
@@ -115,9 +114,6 @@ static void	wall_casting2(t_data *data, t_mypov4wall *me, t_godpov4wall *god)
 		tx.wall_x = data->posY + god->holiz_dist * god->v_ray_y;
 	else
 		tx.wall_x = data->posX + god->holiz_dist * god->v_ray_x;
-	//西側、北側の壁は左右反転させる
-	// if ((god->ns_flag == 0 && god->v_ray_x > 0) || (god->ns_flag == 1
-	// 		&& god->v_ray_y < 0))
 	buf_update(data, me, god, tx);
 }
 
@@ -136,7 +132,7 @@ void	wall_casting(t_data *data)
 		god.cell_dist_y = fabs(1 / god.v_ray_y);
 		god.map_x = (int)data->posX;
 		god.map_y = (int)data->posY;
-		rays_hit_which_side(data, &me, &god);
+		rays_hit_which_side(data, &god);
 		wall_casting2(data, &me, &god);
 	}
 }
