@@ -1,4 +1,4 @@
-# Cub3D
+# Cub3D 🎲
 
 The goal of cub3d is to creat something using raycasting (like [this](https://fr.wikipedia.org/wiki/Wolfenstein_3D))
 
