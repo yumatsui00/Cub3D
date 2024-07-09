@@ -17,6 +17,7 @@ git clone git@github.com:yumatsui00/Cub3D.git cub3d; cd cub3d; make; ./cub3D sam
 - space -- Dash
 - tab   -- turn on/off the mouse to move your field of view
 - m     -- show/hide minimap
+- ESC   -- close window
 
 
 
