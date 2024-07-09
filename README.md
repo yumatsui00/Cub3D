@@ -1,6 +1,6 @@
 # Cub3D 🎲
 
-The goal of cub3d is to creat something using raycasting (like [this](https://fr.wikipedia.org/wiki/Wolfenstein_3D))
+The goal of cub3d is to creat something like [this](https://fr.wikipedia.org/wiki/Wolfenstein_3D) using raycasting
 
 ## Run program
 make sure you don't have a file named cub3d
