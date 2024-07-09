@@ -6,12 +6,15 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 18:03:51 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/08 13:56:34 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/09 15:06:06 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef KEY_H
 # define KEY_H
+
+// for the button ❌
+# define ON_DESTROY 17
 
 // Keyboard LETTERS
 
@@ -84,4 +87,5 @@
 
 # define STOP 0
 # define GO 1
+
 #endif

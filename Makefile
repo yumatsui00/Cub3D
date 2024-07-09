@@ -12,7 +12,7 @@ SRCS = srcs/k_analyze_map.c srcs/init.c srcs/k_assignment_all.c srcs/k_assignmen
 		srcs/raycast_floor.c srcs/raycast_wall.c
 OBJS = $(SRCS:$(SRCDIR)%.c=$(OBJDIR)/%.o)
 
-TARGET = Cub3D
+TARGET = cub3D
 TARGET1 = debug
 
 all: $(TARGET)

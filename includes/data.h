@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 18:52:42 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/09 14:43:07 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/09 15:05:33 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 
 # include "all.h"
 
-# define ON_DESTROY 17
-//!初期値
+//initial value(unchangeable)
 # define WIDTH 640
 # define HEIGHT 480
+//inital value(changeable)
 # define MOVESPEED 0.05
 # define ROTSPEED 0.05
 # define DASH 2.0
 # define MOUSEROT 0.005
-//視野角定数
+//viewing angle
 # define SCALE 0.66
-//壁紙の名前 最低6 多分
+//texture
 # define TEXTURE_NUM 6
 # define CEILING "texture/ice.xpm"
 # define FLOOR "texture/walkstone.xpm"
@@ -35,8 +35,8 @@
 # define WALLSOUTH_NUM 3
 # define CEILING_NUM 4
 # define FLOOR_NUM 5
-//壁紙のピクセル数
-# define BLOCKHEIGHT 64 //仮
+//wall pixels
+# define BLOCKHEIGHT 64
 # define BLOCKWIDTH 64
 
 typedef struct s_rgb

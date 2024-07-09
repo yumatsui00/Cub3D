@@ -10,4 +10,6 @@
 - m     -- show/hide minimap
 
 
+
+
 ### The code with a little bit of explanation is [here](https://github.com/yumatsui00/Cub3D/tree/master/explain)
