@@ -1,6 +1,6 @@
 # Cub3D
 
-##USAGE
+## USAGE
 - w		-- move forward
 - s		-- move backward
 - a		-- turn left
