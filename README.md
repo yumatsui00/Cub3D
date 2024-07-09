@@ -1,5 +1,6 @@
 # Cub3D
 
+
 ## USAGE
 - w     -- move forward
 - s     -- move backward
@@ -12,4 +13,4 @@
 
 
 
-### The code with a little bit of explanation is [here](https://github.com/yumatsui00/Cub3D/tree/master/explain)
+### The code with a little bit of explanation about raycasting is [here](https://github.com/yumatsui00/Cub3D/tree/master/explain)
