@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 17:04:31 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/09 14:02:13 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/09 14:11:11 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int	window_close(t_data *data)
 	exit(0);
 }
 
-
 int	mouse_move(int x, int y, t_data *data)
 {
 	static int	last_x;
@@ -29,21 +28,21 @@ int	mouse_move(int x, int y, t_data *data)
 		return (0);
 	ms.dx = x - last_x;
 	ms.dy = y - last_y;
-    ms.tmpx = data->v_dirX;
-	ms.tmpy = data->v_dirY;
-    data->v_dirX = ms.tmpx * cos(ms.dx * MOUSEROT) - \
-						ms.tmpy * sin(ms.dx * MOUSEROT);
-    data->v_dirY = ms.tmpx * sin(ms.dx * MOUSEROT) + \
-						ms.tmpy * cos(ms.dx * MOUSEROT);
-    ms.tmpx = data->v_planeX;
-	ms.tmpy = data->v_planeY;
-    data->v_planeX = ms.tmpx * cos(ms.dx * MOUSEROT) - \
-						ms.tmpy * sin(ms.dx * MOUSEROT);
-    data->v_planeY = ms.tmpx * sin(ms.dx * MOUSEROT) + \
-						ms.tmpy * cos(ms.dx * MOUSEROT);
-    last_x = x;
-    last_y = y;
-    return (0);
+	ms.tmpx = data->v_dir_x;
+	ms.tmpy = data->v_dir_y;
+	data->v_dir_x = ms.tmpx * cos(ms.dx * MOUSEROT) - ms.tmpy * sin(ms.dx
+			* MOUSEROT);
+	data->v_dir_y = ms.tmpx * sin(ms.dx * MOUSEROT) + ms.tmpy * cos(ms.dx
+			* MOUSEROT);
+	ms.tmpx = data->v_plane_x;
+	ms.tmpy = data->v_plane_y;
+	data->v_plane_x = ms.tmpx * cos(ms.dx * MOUSEROT) - ms.tmpy * sin(ms.dx
+			* MOUSEROT);
+	data->v_plane_y = ms.tmpx * sin(ms.dx * MOUSEROT) + ms.tmpy * cos(ms.dx
+			* MOUSEROT);
+	last_x = x;
+	last_y = y;
+	return (0);
 }
 
 static void	init(t_data *data, int argc)
@@ -54,27 +53,27 @@ static void	init(t_data *data, int argc)
 	data->key_s = 0;
 	data->key_d = 0;
 	data->key_esc = 0;
-	data->posX += 0.5;
-	data->posY += 0.5;
+	data->pos_x += 0.5;
+	data->pos_y += 0.5;
 	data->dash = 1;
 	data->mini = 0;
 	data->mouse = 0;
 	data->win = mlx_new_window(data->mlx, WIDTH, HEIGHT, "Cub3D");
 	data->img.img = mlx_new_image(data->mlx, WIDTH, HEIGHT);
-	data->img.info = (int *)mlx_get_data_addr(data->img.img, \
-		&data->img.bpp, &data->img.size_l, &data->img.endian);
-	if (data->v_dirX == -1)
-		data->v_planeY *= -1;
-	if (data->v_dirY == 1)
-		data->v_planeX *= -1;
+	data->img.info = (int *)mlx_get_data_addr(data->img.img, &data->img.bpp,
+			&data->img.size_l, &data->img.endian);
+	if (data->v_dir_x == -1)
+		data->v_plane_y *= -1;
+	if (data->v_dir_y == 1)
+		data->v_plane_x *= -1;
 }
 
-int	main(int argc, char **argv) {
+int	main(int argc, char **argv)
+{
 	t_data	data;
 
 	data = analyze_cub(argv[1]);
 	data.mlx = mlx_init();
-
 	if (init_data(&data) == MALLOCERROR)
 		return (MALLOCERROR);
 	init(&data, argc);
