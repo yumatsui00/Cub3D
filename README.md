@@ -2,7 +2,7 @@
 
 The goal of cub3d is to creat something using raycasting (like [this](https://fr.wikipedia.org/wiki/Wolfenstein_3D))
 
-## Compile & run program
+## Run program
 make sure you don't have a file named cub3d
 
 ```
