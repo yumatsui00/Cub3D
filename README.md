@@ -3,7 +3,7 @@
 ## Compile & run program
 make sure you don't have a file named cub3d
 
-git clone git@github.com:yumatsui00/Cub3D.git cub3d; cd cub3d; make; ./cub3D sample.cub
+> git clone git@github.com:yumatsui00/Cub3D.git cub3d; cd cub3d; make; ./cub3D sample.cub
 
 ## USAGE
 - w     -- move forward
