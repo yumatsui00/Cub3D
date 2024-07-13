@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kkomatsu <kkomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 17:04:31 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/13 20:29:24 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/13 20:49:06 by kkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ int	main(int argc, char **argv)
 {
 	t_data	data;
 
+	if (argc != 2)
+		return (write(1, "Error\n", 6), 0);
 	data = analyze_cub(argv[1]);
 	data.mlx = mlx_init();
 	if (init_data(&data) == MALLOCERROR)

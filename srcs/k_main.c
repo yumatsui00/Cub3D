@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   k_main.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kkomatsu <kkomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 13:24:55 by kkomatsu          #+#    #+#             */
-/*   Updated: 2024/07/09 14:37:33 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/13 20:49:15 by kkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,3 +111,12 @@ t_data	analyze_cub(char *filepath)
 		(write(1, "Error\n", 6), exit(0));
 	return (k_init(component, pos));
 }
+
+// int	main(int argc, char **argv)
+// {
+// 	t_data	data;
+
+// 	data = analyze_cub(argv[1]);
+// 	printf("finish\n");
+// 	return 0;
+// }
