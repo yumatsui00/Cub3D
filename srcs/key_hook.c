@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 19:35:07 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/09 14:02:00 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/13 20:28:43 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@ int	key_press(int key, t_data *data)
 		data->key_d = GO;
 	else if (key == SP)
 		data->dash = DASH;
+	else if (key == LEFT)
+		data->key_left = GO;
+	else if (key == RIGHT)
+		data->key_right = GO;
 	else if (key == M)
 		data->mini += 1;
 	else if (key == TAB)
@@ -45,5 +49,9 @@ int	key_release(int key, t_data *data)
 		data->key_d = STOP;
 	else if (key == SP)
 		data->dash = 1;
+	else if (key == LEFT)
+		data->key_left = STOP;
+	else if (key == RIGHT)
+		data->key_right = STOP;
 	return (0);
 }

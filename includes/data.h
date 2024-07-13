@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 18:52:42 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/09 16:21:36 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/13 20:27:30 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,8 @@ typedef struct s_data
 	int		key_w;
 	int		key_s;
 	int		key_d;
+	int		key_left;
+	int		key_right;
 	int		key_esc;
 	double	dash;
 	t_img	img;

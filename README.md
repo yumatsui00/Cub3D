@@ -12,8 +12,10 @@ git clone git@github.com:yumatsui00/Cub3D.git cub3d; cd cub3d; make; ./cub3D sam
 ## USAGE
 - w     -- move forward
 - s     -- move backward
-- a     -- turn left
-- d     -- turn right
+- a     -- move left
+- d     -- move right
+- ←		-- turn left
+- →		-- turn rignt
 - space -- Dash
 - tab   -- turn on/off the mouse to move your field of view
 - m     -- show/hide minimap

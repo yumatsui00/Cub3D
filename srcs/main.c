@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 17:04:31 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/09 16:25:25 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/13 20:29:24 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ static void	init(t_data *data, int argc)
 	data->key_w = 0;
 	data->key_s = 0;
 	data->key_d = 0;
+	data->key_left = 0;
+	data->key_right = 0;
 	data->key_esc = 0;
 	data->pos_x += 0.5;
 	data->pos_y += 0.5;
