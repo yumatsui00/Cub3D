@@ -3,38 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   mainloop.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kkomatsu <kkomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 10:03:42 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/13 20:40:40 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/13 21:00:31 by kkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/all.h"
 
-static void	update_key_ad(t_data *data)
+static void	update_key_ad(t_data *d)
 {
-	if (d->key_a)
-	{
-		if (!d->map[(int)(d->pos_y + 0.05)][(int)(d->pos_x - d->v_plane_y * \
-		d->move_speed * d->dash + 0.05)] && !d->map[(int)(d->pos_y - 0.05)]
-		[(int)(d->pos_x - d->v_plane_y * d->move_speed * d->dash - 0.05)])
-			d->pos_x -= d->v_plane_y * d->move_speed * d->dash;
-		if (!d->map[(int)(d->pos_y - d->v_plane_x * d->move_speed * d->dash + \
-		0.05)][(int)(d->pos_x + 0.05)] && !d->map[(int)(d->pos_y - \
-		d->v_plane_x * d->move_speed * d->dash - 0.05)][(int)(d->pos_x - 0.05)])
-			d->pos_y -= d->v_plane_x * d->move_speed * d->dash;
-	}
 	if (d->key_d)
 	{
-		if (!d->map[(int)(d->pos_y + 0.05)][(int)(d->pos_x + d->v_plane_y * \
+		if (!d->map[(int)(d->pos_y + 0.05)][(int)(d->pos_x + d->v_plane_x * \
+		d->move_speed * d->dash + 0.05)] && !d->map[(int)(d->pos_y - 0.05)]
+		[(int)(d->pos_x + d->v_plane_x * d->move_speed * d->dash - 0.05)])
+			d->pos_x += d->v_plane_x * d->move_speed * d->dash;
+		if (!d->map[(int)(d->pos_y + d->v_plane_y * d->move_speed * d->dash + \
+		0.05)][(int)(d->pos_x + 0.05)] && !d->map[(int)(d->pos_y + \
+		d->v_plane_y * d->move_speed * d->dash - 0.05)][(int)(d->pos_x - 0.05)])
+			d->pos_y += d->v_plane_y * d->move_speed * d->dash;
+	}
+	if (d->key_a)
+	{
+		if (!d->map[(int)(d->pos_y + 0.05)][(int)(d->pos_x - d->v_plane_x * \
 		d->move_speed * d->dash + 0.05)] && !d->map[(int)(d->pos_y - 0.05)] \
-		[(int)(d->pos_x + d->v_plane_Y * d->move_speed * d->dash - 0.05)])
-			d->pos_x += d->v_plane_y * d->move_speed * d->dash;
-		if (!d->map[(int)(d->pos_y + d->v_plane_x * d->move_speed * d->dash \
-		+ 0.05)][(int)(d->pos_x + 0.05)] && !d->map[(int)(d->pos_y + \
-		d->v_plane_x * d->move_speed * d->dash - 0.05)][(int)(d->pos_x - 0.05)])
-			d->pos_y += d->v_plane_x * d->move_speed * d->dash;
+		[(int)(d->pos_x - d->v_plane_x * d->move_speed * d->dash - 0.05)])
+			d->pos_x -= d->v_plane_x * d->move_speed * d->dash;
+		if (!d->map[(int)(d->pos_y - d->v_plane_y * d->move_speed * d->dash \
+		+ 0.05)][(int)(d->pos_x + 0.05)] && !d->map[(int)(d->pos_y - \
+		d->v_plane_y * d->move_speed * d->dash - 0.05)][(int)(d->pos_x - 0.05)])
+			d->pos_y -= d->v_plane_y * d->move_speed * d->dash;
 	}
 }
 
@@ -64,7 +64,7 @@ static void	update_key_ws(t_data *d)
 	}
 }
 
-static void update_key_arrow(t_data *d)
+static void update_key_arrow(t_data *data)
 {
 	double	tmp_x;
 	double	tmp_y;
