@@ -6,7 +6,7 @@
 /*   By: kkomatsu <kkomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 10:03:42 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/13 21:00:31 by kkomatsu         ###   ########.fr       */
+/*   Updated: 2024/07/15 18:09:18 by kkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static void	update_key_ws(t_data *d)
 	}
 }
 
-static void update_key_arrow(t_data *data)
+static void	update_key_arrow(t_data *data)
 {
 	double	tmp_x;
 	double	tmp_y;
