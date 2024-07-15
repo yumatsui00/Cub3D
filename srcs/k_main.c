@@ -6,7 +6,7 @@
 /*   By: kkomatsu <kkomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 13:24:55 by kkomatsu          #+#    #+#             */
-/*   Updated: 2024/07/13 20:49:15 by kkomatsu         ###   ########.fr       */
+/*   Updated: 2024/07/15 18:08:05 by kkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ t_data	analyze_cub(char *filepath)
 		(write(1, "Error\n", 6), exit(0));
 	component = init_texture();
 	pos = assignment_all(component, filepath);
-	if (!pos.direction)
+	if (!pos.direction || !check_surround(component->map))
 		(write(1, "Error\n", 6), exit(0));
 	return (k_init(component, pos));
 }
