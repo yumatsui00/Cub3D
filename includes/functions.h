@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   functions.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kkomatsu <kkomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 18:52:36 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/09 14:39:43 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/15 16:09:02 by kkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void		assignment_rgb(t_analyze *data, char *line);
 t_position	assignment_all(t_analyze *data, char *filepath);
 t_position	analyze_map(int **map);
 void		assignment_map(t_analyze *data, char **map);
+int			check_surround(int **map);
 
 int			*make_off_line(int width, int num);
 int			get_max_width_intpp(int **map);
