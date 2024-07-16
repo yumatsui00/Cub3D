@@ -6,7 +6,7 @@
 /*   By: kkomatsu <kkomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:31:45 by kkomatsu          #+#    #+#             */
-/*   Updated: 2024/07/13 21:06:47 by kkomatsu         ###   ########.fr       */
+/*   Updated: 2024/07/16 09:58:20 by kkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,8 +92,10 @@ void	assignment_rgb(t_analyze *data, char *line)
 	char	**splits;
 
 	splits = ft_split(line, ' ');
-	if (!splits || !*splits || ft_strpplen(splits) != 2)
+	if (!splits || !*splits || !ft_strcmp(splits[0], "\n"))
 		return ;
+	if (ft_strpplen(splits) != 2)
+		(write(1, "Error\n", 6), free_double_ptr(splits), exit(0));
 	if (!splits[0] || !splits[1])
 		return (free_double_ptr(splits));
 	if (!ft_strcmp(splits[0], "F"))
