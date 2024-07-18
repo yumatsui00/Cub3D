@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkomatsu <kkomatsu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 17:04:31 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/13 20:49:06 by kkomatsu         ###   ########.fr       */
+/*   Updated: 2024/07/19 01:41:00 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	mouse_move(int x, int y, t_data *data)
 	static int	last_y;
 	t_ms		ms;
 
-	if (data->mouse % 2 == 0)
+	if (!data->mouse)
 		return (0);
 	ms.dx = x - last_x;
 	ms.dy = y - last_y;
@@ -58,8 +58,8 @@ static void	init(t_data *data, int argc)
 	data->pos_x += 0.5;
 	data->pos_y += 0.5;
 	data->dash = 1;
-	data->mini = 0;
-	data->mouse = 0;
+	data->mini = false;
+	data->mouse = false;
 	data->win = mlx_new_window(data->mlx, WIDTH, HEIGHT, "Cub3D");
 	data->img.img = mlx_new_image(data->mlx, WIDTH, HEIGHT);
 	data->img.info = (int *)mlx_get_data_addr(data->img.img, &data->img.bpp,

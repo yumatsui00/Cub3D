@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 17:04:31 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/09 15:30:48 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/19 01:42:02 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	mouse_move(int x, int y, t_data *data)
 	t_ms		ms;
 
 	// check on/off
-	if (data->mouse % 2 == 0)
+	if (!data->mouse)
 		return (0);
 	// check which direction the mouse moved, and rotate
 	ms.dx = x - last_x;

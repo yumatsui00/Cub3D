@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 10:03:42 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/09 15:28:25 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/19 01:41:18 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int	mainloop(t_data *data)
 	update_key_ad(data);
 	floor_ceiling_casting(data);
 	wall_casting(data);
-	if (data->mini % 2 == 1)
+	if (data->mini)
 		minimap_casting(data);
 	y = -1;
 	while (++y < HEIGHT)

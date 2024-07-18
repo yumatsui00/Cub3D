@@ -6,7 +6,7 @@
 /*   By: yumatsui <yumatsui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 18:52:42 by yumatsui          #+#    #+#             */
-/*   Updated: 2024/07/13 20:27:30 by yumatsui         ###   ########.fr       */
+/*   Updated: 2024/07/19 01:38:25 by yumatsui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,8 +109,8 @@ typedef struct s_data
 	int		**texture;
 	double	move_speed;
 	double	rot_speed;
-	int		mini;
-	int		mouse;
+	bool	mini;
+	bool	mouse;
 }			t_data;
 
 typedef struct s_ms
